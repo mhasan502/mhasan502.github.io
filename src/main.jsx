@@ -6,7 +6,7 @@ import '@mantine/core/styles.css';
 import {createTheme, MantineProvider} from '@mantine/core';
 
 const poppinsFont = createTheme({
-    fontFamily: 'Open Sans, sans-serif',
+  fontFamily: 'Open Sans, sans-serif',
 })
 
 ReactDOM.createRoot(document.getElementById('root')).render(

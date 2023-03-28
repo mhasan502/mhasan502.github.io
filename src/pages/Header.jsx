@@ -1,7 +1,6 @@
 import {useDisclosure} from '@mantine/hooks';
 import {AppShell, Burger, Group, Box, Button} from '@mantine/core';
 import {MantineLogo} from '@mantinex/mantine-logo';
-import classes from './Header.module.css';
 
 const links = [
   {link: '/about', label: 'About'},
@@ -27,7 +26,7 @@ const Header = () => {
             <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm"/>
             <Group justify="space-between" style={{flex: 1}}>
               <MantineLogo size={30}/>
-                <Group gap="sm" visibleFrom="sm" justify="center">
+                <Group gap="xs" visibleFrom="sm" justify="center">
                   <Button size="compact-md" variant="subtle" color="#0078CD">About</Button>
                   <Button size="compact-md" variant="subtle" color="#0078CD">Experience</Button>
                   <Button size="compact-md" variant="subtle" color="#0078CD">Education</Button>
