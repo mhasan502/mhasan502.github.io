@@ -7,7 +7,7 @@ import {createTheme, MantineProvider} from '@mantine/core';
 
 const poppinsFont = createTheme({
   fontFamily: 'Poppins, sans-serif',
-})
+});
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,4 +15,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <App/>
     </MantineProvider>
   </React.StrictMode>,
-)
+);
