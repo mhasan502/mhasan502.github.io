@@ -1,6 +1,9 @@
+import Skeleton from "../components/Skeleton.jsx";
+
 const Education = () => {
 	return (
-		<h1>Hello World</h1>
+		<Skeleton>
+		</Skeleton>
 	);
 }
 

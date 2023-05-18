@@ -6,19 +6,19 @@ import Projects from './pages/Projects.jsx';
 import Publications from './pages/Publications.jsx';
 import Skills from './pages/Skills.jsx';
 
-function App() {
+function AppRouter() {
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path={''} element={<Index/>}/>
-				<Route path={'experience/'} element={<Experience/>}/>
-				<Route path={'education/'} element={<Education/>}/>
-				<Route path={'projects/'} element={<Projects/>}/>
-				<Route path={'skills/'} element={<Skills/>}/>
-				<Route path={'publications/'} element={<Publications/>}/>
+				<Route path={'/experience/'} element={<Experience/>}/>
+				<Route path={'/education/'} element={<Education/>}/>
+				<Route path={'/projects/'} element={<Projects/>}/>
+				<Route path={'/skills/'} element={<Skills/>}/>
+				<Route path={'/publications/'} element={<Publications/>}/>
 			</Routes>
 		</BrowserRouter>
 	);
 }
 
-export default App;
+export default AppRouter;

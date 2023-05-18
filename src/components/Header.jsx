@@ -1,13 +1,15 @@
-import {AppShell, Burger, Group, Box, Button, Anchor} from '@mantine/core';
+import {Link} from 'react-router-dom';
+import {AppShell, Burger, Group, Box, Button} from '@mantine/core';
 import {MantineLogo} from '@mantinex/mantine-logo';
 import PropTypes from 'prop-types';
 
+
 const buttonData = [
-	{tag: 'Experience', link: 'experience/'},
-	{tag: 'Education', link: 'education/'},
-	{tag: 'Projects', link: 'projects/'},
-	{tag: 'Skills', link: 'skills/'},
-	{tag: 'Publications', link: 'publications/'},
+	{tag: 'Experience', link: '/experience/'},
+	{tag: 'Education', link: '/education/'},
+	{tag: 'Projects', link: '/projects/'},
+	{tag: 'Skills', link: '/skills/'},
+	{tag: 'Publications', link: '/publications/'},
 ];
 
 const NavbarOptions = () => {
@@ -16,7 +18,7 @@ const NavbarOptions = () => {
 			{
 				buttonData.map((button) => (
 					<Button key={button.tag} size='compact-md' variant='subtle' color='#0078CD'>
-						<Anchor href={button.link}>{button.tag}</Anchor>
+						<Link to={button.link}>{button.tag}</Link>
 					</Button>
 				))
 			}
@@ -45,8 +47,8 @@ const Header = ({opened, toggle}) => {
 			<AppShell.Header color='#000000'>
 				<Box p='sm' styles={[]}>
 					<Group h='100%' px='md'>
-						<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size="sm"/>
-						<Group justify="space-between" style={{flex: 1}}>
+						<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm'/>
+						<Group justify='space-between' style={{flex: 1}}>
 							<MantineLogo size={30}/>
 							<DesktopNavbarOptions/>
 						</Group>
