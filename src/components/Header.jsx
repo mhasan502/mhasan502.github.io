@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 import {AppShell, Burger, Group, Box, Button} from '@mantine/core';
 import {MantineLogo} from '@mantinex/mantine-logo';
 import PropTypes from 'prop-types';
-
+import {useState} from "react";
 
 const buttonData = [
 	{tag: 'Experience', link: '/experience/'},
@@ -13,15 +13,25 @@ const buttonData = [
 ];
 
 const NavbarOptions = () => {
+	const [activeButtonIndex, setActiveButtonIndex] = useState(null);
+
+	const renderButton = (item, index) => (
+		<Link
+			to={item.link}
+			key={item.tag}
+		>
+			<Button
+				variant={index === activeButtonIndex ? 'primary' : 'subtle'}
+				onClick={() => setActiveButtonIndex(index)}
+			>
+				{item.tag}
+			</Button>
+		</Link>
+	);
+
 	return (
 		<>
-			{
-				buttonData.map((button) => (
-					<Button key={button.tag} size='compact-md' variant='subtle' color='#0078CD'>
-						<Link to={button.link}>{button.tag}</Link>
-					</Button>
-				))
-			}
+			{buttonData.map(renderButton)}
 		</>
 	);
 }
@@ -33,6 +43,7 @@ const DesktopNavbarOptions = () => {
 	);
 }
 
+// TODO - button position center
 const MobileNavbarOptions = () => {
 	return (
 		<AppShell.Navbar py='md' px={4}>
@@ -49,7 +60,9 @@ const Header = ({opened, toggle}) => {
 					<Group h='100%' px='md'>
 						<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm'/>
 						<Group justify='space-between' style={{flex: 1}}>
-							<MantineLogo size={30}/>
+							<Link to={'/'}>
+								<MantineLogo size={30}/>
+							</Link>
 							<DesktopNavbarOptions/>
 						</Group>
 					</Group>
