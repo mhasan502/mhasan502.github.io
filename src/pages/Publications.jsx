@@ -12,11 +12,8 @@ const Publications = () => {
         <Space h={'xl'}/>
 
         <Group justify="center">
-          <Title order={1}>
-            <RiDraftLine/>
-          </Title>
           <Title order={3}>
-            Publications:
+            <RiDraftLine/> Publications:
           </Title>
         </Group>
         <Space h={'lg'}/>
