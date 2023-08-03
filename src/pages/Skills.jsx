@@ -1,5 +1,5 @@
 import Skeleton from "../components/Skeleton.jsx";
-import {Container, Group, List, Space, Title, Text, Mark} from "@mantine/core";
+import {Container, Group, List, Space, Title, Text, Mark, Divider} from "@mantine/core";
 import {BsPersonGear} from "react-icons/bs";
 
 const Skills = () => {
@@ -42,7 +42,7 @@ const Skills = () => {
           </List.Item>
         </List>
         <Space h={'lg'}/>
-
+        <Divider my="xl" />
         <Text>
           The above mentioned technologies I use large part of the day. I am flexible with programming languages and
           technologies.
