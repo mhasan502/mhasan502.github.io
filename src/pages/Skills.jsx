@@ -1,16 +1,16 @@
 import Skeleton from "../components/Skeleton.jsx";
 import {Container, Group, List, Space, Title, Text, Mark, Divider} from "@mantine/core";
-import {BsPersonGear} from "react-icons/bs";
+import {VscTools} from "react-icons/vsc";
 
 const Skills = () => {
   return (
     <Skeleton>
-      <Container size={'lg'}>
+      <Container size={'md'}>
         <Space h={'xl'}/>
 
         <Group justify="center">
           <Title order={3}>
-            <BsPersonGear/> Skills:
+            <VscTools/> Skills
           </Title>
         </Group>
         <Space h={'lg'}/>

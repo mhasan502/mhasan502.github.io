@@ -1,20 +1,20 @@
 import Skeleton from "../components/Skeleton.jsx";
-import {Container, Group, Space, Title, Text, Timeline, List, Paper, Box, Flex} from "@mantine/core";
+import {Container, Group, Space, Title, Text, Timeline, List} from "@mantine/core";
 import {IoSchoolOutline} from "react-icons/io5";
 
 const Education = () => {
   return (
     <Skeleton>
-      <Container size={'lg'}>
+      <Container size={'md'}>
         <Space h={'xl'}/>
 
         <Group justify="center">
           <Title order={3}>
-            <IoSchoolOutline/> Education:
+            <IoSchoolOutline/> Education
           </Title>
         </Group>
         <Space h={'lg'}/>
-        <Timeline active={1} bulletSize={25}>
+        <Timeline active={3} bulletSize={20}  radius={'sm'}>
           <Timeline.Item>
             <Title order={5}>
               Bachelor of Science in Computer Science and Engineering - North South University
@@ -22,6 +22,9 @@ const Education = () => {
             <Text bg='gray.1' style={{ display: 'inline-block' }} px={5} py={3}>
               Spring 2018 - Summer 2022
             </Text>
+
+            <Space h="md" />
+
             <List>
               <List.Item>
                 CGPA: 3.77/4.00 (92% marks)

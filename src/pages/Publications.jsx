@@ -8,12 +8,12 @@ const Publications = () => {
 
   return (
     <Skeleton>
-      <Container size={'lg'}>
+      <Container size={'md'}>
         <Space h={'xl'}/>
 
         <Group justify="center">
           <Title order={3}>
-            <RiDraftLine/> Publications:
+            <RiDraftLine/> Publications
           </Title>
         </Group>
         <Space h={'lg'}/>

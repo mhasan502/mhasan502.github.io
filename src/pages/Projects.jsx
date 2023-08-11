@@ -5,12 +5,12 @@ import {IoApps} from "react-icons/io5";
 const Projects = () => {
 	return (
 		<Skeleton>
-      <Container size={'lg'}>
+      <Container size={'md'}>
         <Space h={'xl'}/>
 
         <Group justify="center">
           <Title order={3}>
-            <IoApps/> Projects:
+            <IoApps/> Projects
           </Title>
         </Group>
         <Space h={'lg'}/>
