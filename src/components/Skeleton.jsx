@@ -7,8 +7,14 @@ const Skeleton = ({children}) => {
   const [opened, {toggle}] = useDisclosure();
   return (
     <AppShell
-      header={{height: 60}}
-      navbar={{width: 300, breakpoint: 'sm', collapsed: {desktop: true, mobile: !opened}}}
+      header={{
+        height: {base: 60, md: 70, lg: 80}
+      }}
+      navbar={{
+        width: { base: 200, md: 300, lg: 400 },
+        breakpoint: 'sm',
+        collapsed: {desktop: true, mobile: !opened}
+      }}
       padding='md'>
       <Header opened={opened} toggle={toggle}/>
       <AppShell.Main>

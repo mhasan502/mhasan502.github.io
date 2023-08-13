@@ -5,13 +5,13 @@ import './index.css'
 import '@mantine/core/styles.css';
 import {createTheme, MantineProvider} from '@mantine/core';
 
-const poppinsFont = createTheme({
-  fontFamily: 'Poppins, sans-serif',
+const customTheme = createTheme({
+  fontFamily: 'Rubik, sans-serif',
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <MantineProvider theme={poppinsFont}>
+    <MantineProvider theme={customTheme}>
       <AppRouter/>
     </MantineProvider>
   </React.StrictMode>,

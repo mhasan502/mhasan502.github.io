@@ -19,11 +19,12 @@ const Education = () => {
             <Title order={5}>
               Bachelor of Science in Computer Science and Engineering - North South University
             </Title>
+
+            <Space h="sm"/>
             <Text bg='gray.1' style={{ display: 'inline-block' }} px={5} py={3}>
               Spring 2018 - Summer 2022
             </Text>
-
-            <Space h="md" />
+            <Space h="xs"/>
 
             <List>
               <List.Item>

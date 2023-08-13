@@ -1,6 +1,5 @@
 import {Link} from 'react-router-dom';
-import {AppShell, Burger, Group, Box, Button} from '@mantine/core';
-import {MantineLogo} from '@mantinex/mantine-logo';
+import {AppShell, Burger, Group, Box, Button, Image, Text, Title} from '@mantine/core';
 import PropTypes from 'prop-types';
 import {useState} from "react";
 
@@ -20,7 +19,7 @@ const NavbarOptions = () => {
 			to={item.link}
 			key={item.tag}
 		>
-			<Button
+			<Button size={'compact-md'}
 				variant={index === activeButtonIndex ? 'primary' : 'subtle'}
 				onClick={() => setActiveButtonIndex(index)}
 			>
@@ -57,11 +56,24 @@ const Header = ({opened, toggle}) => {
 		<>
 			<AppShell.Header color='#000000'>
 				<Box p='sm' styles={[]}>
-					<Group h='100%' px='md'>
+					<Group h='100%' px='sm'>
 						<Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm'/>
 						<Group justify='space-between' style={{flex: 1}}>
-							<Link to={'/'}>
-								<MantineLogo size={30}/>
+							<Link to={'/'} style={{ textDecoration: 'none' }}>
+								<Group>
+								<Image
+									h={{base: 35, md: 45, lg: 55}} radius={'md'}
+									src={'../../public/Mehedi.jpg'}
+								/>
+									<Title
+										order={2}
+										tt="uppercase"
+										c={'blue'}
+										style={{ fontFamily: 'Chakra Petch'}}
+									>
+										Md. Mehedi Hasan
+									</Title>
+								</Group>
 							</Link>
 							<DesktopNavbarOptions/>
 						</Group>
