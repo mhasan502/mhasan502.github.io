@@ -42,18 +42,21 @@ const Skills = () => {
           </List.Item>
         </List>
         <Space h={'lg'}/>
-        <Divider my="xl" />
+        <Divider my="xl"/>
         <Text>
-          The above mentioned technologies I use large part of the day. I am flexible with programming languages and
-          technologies.
+          I love working with different type of technologies. The above mentioned technologies I use large part of the
+          day on work. I am flexible with programming languages and technologies. I have
         </Text>
-        <Text>I have</Text>
+        <Space h={'sm'}/>
         <List>
           <List.Item>
             built apps in <Mark color="gray.4">Java</Mark> to be used on client side.
           </List.Item>
           <List.Item>
             worked on Arduino variant of <Mark color="gray.4">C/C++</Mark> language to built Line-following Robots.
+          </List.Item>
+          <List.Item>
+            built this portfolio website using <Mark color="gray.4">React</Mark>
           </List.Item>
           <List.Item>
             completed Database Management System course project in <Mark color="gray.4">PHP</Mark>
@@ -65,7 +68,7 @@ const Skills = () => {
             scraped data using <Mark color="gray.4">BeautifulSoup</Mark> from popular newspaper sites of Bangladesh.
           </List.Item>
           <List.Item>
-            solved couple programming problems languages <Mark color="gray.4">C#</Mark>
+            solved couple competitive programming problems in <Mark color="gray.4">C#</Mark>
           </List.Item>
         </List>
 
