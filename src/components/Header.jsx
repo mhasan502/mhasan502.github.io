@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {AppShell, Burger, Group, Box, Button, Image, Text, Title} from '@mantine/core';
+import {AppShell, Burger, Group, Box, Button, Image, Title} from '@mantine/core';
 import PropTypes from 'prop-types';
 import {useState} from "react";
 

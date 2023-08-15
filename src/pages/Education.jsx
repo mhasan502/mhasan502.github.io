@@ -28,7 +28,7 @@ const Education = () => {
 
             <List>
               <List.Item>
-                CGPA: 3.77/4.00 (92% marks)
+                CGPA: 3.77/4.00 (90-92% marks)
               </List.Item>
               <List.Item>
                 Graduated with Magna Cum Laude

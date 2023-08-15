@@ -53,7 +53,7 @@ const Skills = () => {
             built apps in <Mark color="gray.4">Java</Mark> to be used on client side.
           </List.Item>
           <List.Item>
-            worked on Arduino variant of <Mark color="gray.4">C/C++</Mark> language to built Line-following Robots.
+            worked on Arduino variant of <Mark color="gray.4">C/C++</Mark> language to build Line-following Robots.
           </List.Item>
           <List.Item>
             built this portfolio website using <Mark color="gray.4">React</Mark>
