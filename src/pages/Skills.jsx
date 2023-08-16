@@ -15,7 +15,7 @@ const Skills = () => {
         </Group>
         <Space h={'lg'}/>
 
-        <List>
+        <List p={5}>
           <List.Item>
             <Text span fw={700}>Programming Languages : </Text>
             Python, Javascript, C++
@@ -48,7 +48,7 @@ const Skills = () => {
           day on work. I am flexible with programming languages and technologies. I have
         </Text>
         <Space h={'sm'}/>
-        <List>
+        <List p={5}>
           <List.Item>
             built apps in <Mark color="gray.4">Java</Mark> to be used on client side.
           </List.Item>

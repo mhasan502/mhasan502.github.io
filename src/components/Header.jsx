@@ -19,7 +19,7 @@ const NavbarOptions = () => {
 			to={item.link}
 			key={item.tag}
 		>
-			<Button size={'compact-md'}
+			<Button size={'compact-md'} p={0}
 				variant={index === activeButtonIndex ? 'primary' : 'subtle'}
 				onClick={() => setActiveButtonIndex(index)}
 			>
@@ -66,7 +66,7 @@ const Header = ({opened, toggle}) => {
 									src={'../../public/Mehedi.jpg'}
 								/>
 									<Title
-										order={2}
+										order={3}
 										tt="uppercase"
 										c={'blue'}
 										style={{ fontFamily: 'Chakra Petch'}}

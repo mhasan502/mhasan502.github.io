@@ -2,6 +2,7 @@ import {AppShell} from '@mantine/core';
 import Header from './Header.jsx';
 import {useDisclosure} from '@mantine/hooks';
 import {IconContext} from "react-icons";
+import PropTypes from "prop-types";
 
 const Skeleton = ({children}) => {
   const [opened, {toggle}] = useDisclosure();
@@ -25,5 +26,9 @@ const Skeleton = ({children}) => {
     </AppShell>
   )
 }
+
+Skeleton.propTypes = {
+  children: PropTypes.node,
+};
 
 export default Skeleton;
