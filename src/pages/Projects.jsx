@@ -3,21 +3,23 @@ import {Container, Group, Space, Title} from "@mantine/core";
 import {IoApps} from "react-icons/io5";
 
 const Projects = () => {
-	return (
-		<Skeleton>
+  return (
+    <Skeleton>
       <Container size={'md'}>
         <Space h={'xl'}/>
 
         <Group justify="center">
           <Title order={3}>
-            <IoApps/> Projects
+            <Group>
+              <IoApps/> Projects
+            </Group>
           </Title>
         </Group>
         <Space h={'lg'}/>
         Will be updated Soon
-        </Container>
-		</Skeleton>
-	);
+      </Container>
+    </Skeleton>
+  );
 }
 
 export default Projects;

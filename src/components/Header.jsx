@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {AppShell, Burger, Group, Box, Button, Image, Title} from '@mantine/core';
+import {AppShell, Burger, Group, Box, Button, Image, Title, Center} from '@mantine/core';
 import PropTypes from 'prop-types';
 
 const buttonData = [
@@ -10,7 +10,7 @@ const buttonData = [
   {tag: 'Publications', link: '/publications/'},
 ];
 
-const NavbarOptions = () => {
+const DesktopNavbarOptions = () => {
   const renderButton = (item) => (
     <Link to={item.link} key={item.tag}>
       <Button size={'compact-md'} p={2} variant={'subtle'}>
@@ -20,24 +20,26 @@ const NavbarOptions = () => {
   );
 
   return (
-    <>
-      {buttonData.map(renderButton)}
-    </>
-  );
-}
-const DesktopNavbarOptions = () => {
-  return (
     <Group gap='xs' visibleFrom='sm' justify='center'>
-      <NavbarOptions/>
+      {buttonData.map(renderButton)}
     </Group>
   );
 }
 
-// TODO - button position center
 const MobileNavbarOptions = () => {
+  const renderMobileButton = (item) => (
+    <Center key={item.tag} py={2}>
+      <Link to={item.link}>
+        <Button size={'compact-md'} p={2} variant={'subtle'}>
+          {item.tag}
+        </Button>
+      </Link>
+    </Center>
+  );
+
   return (
     <AppShell.Navbar py='md' px={4}>
-      <NavbarOptions/>
+      {buttonData.map(renderMobileButton)}
     </AppShell.Navbar>
   );
 }

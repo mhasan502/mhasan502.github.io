@@ -13,7 +13,9 @@ const Publications = () => {
 
         <Group justify="center">
           <Title order={3}>
-            <RiDraftLine/> Publications
+            <Group>
+              <RiDraftLine/> Publications
+            </Group>
           </Title>
         </Group>
         <Space h={'lg'}/>
@@ -37,7 +39,7 @@ const Publications = () => {
               opened={opened}
               onClose={close}
               centered
-              >
+            >
               <Image src="../../public/Graphical Abstract.png"/>
             </Modal>
 

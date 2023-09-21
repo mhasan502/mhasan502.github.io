@@ -10,7 +10,9 @@ const Experience = () => {
 
         <Group justify="center">
           <Title order={3}>
-            <IoBriefcaseOutline/> Experience
+            <Group>
+              <IoBriefcaseOutline/> Experience
+            </Group>
           </Title>
         </Group>
         <Space h={'lg'}/>

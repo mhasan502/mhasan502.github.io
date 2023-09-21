@@ -10,7 +10,9 @@ const Education = () => {
 
         <Group justify="center">
           <Title order={3}>
-            <IoSchoolOutline/> Education
+            <Group>
+              <IoSchoolOutline/> Education
+            </Group>
           </Title>
         </Group>
         <Space h={'lg'}/>
@@ -48,15 +50,15 @@ const Education = () => {
                   </Text>
                 </Text>
               </List.Item>
-          </List>
+            </List>
 
-        </Timeline.Item>
-      </Timeline>
+          </Timeline.Item>
+        </Timeline>
 
-    </Container>
-</Skeleton>
-)
-  ;
+      </Container>
+    </Skeleton>
+  )
+    ;
 }
 
 export default Education;

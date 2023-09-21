@@ -10,7 +10,9 @@ const Skills = () => {
 
         <Group justify="center">
           <Title order={3}>
-            <VscTools/> Skills
+            <Group>
+              <VscTools/> Skills
+            </Group>
           </Title>
         </Group>
         <Space h={'lg'}/>
