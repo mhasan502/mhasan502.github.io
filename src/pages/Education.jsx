@@ -50,6 +50,9 @@ const Education = () => {
                   </Text>
                 </Text>
               </List.Item>
+              <List.Item>
+                Achieved 2nd Runner Up position in Electrathon 2018 organized by IEEE NSU
+              </List.Item>
             </List>
 
           </Timeline.Item>
