@@ -6,7 +6,7 @@ import Projects from './pages/Projects.jsx';
 import Publications from './pages/Publications.jsx';
 import Skills from './pages/Skills.jsx';
 
-function AppRouter() {
+function Router() {
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -21,4 +21,4 @@ function AppRouter() {
 	);
 }
 
-export default AppRouter;
+export default Router;

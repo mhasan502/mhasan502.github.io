@@ -40,10 +40,10 @@ const Publications = () => {
               onClose={close}
               centered
             >
-              <Image src="../../public/Graphical Abstract.png"/>
+              <Image src="/Graphical Abstract.png"/>
             </Modal>
 
-            <Image radius={'md'} src="../../public/Graphical Abstract.png" onClick={open}/>
+            <Image radius={'md'} src="/Graphical Abstract.png" onClick={open}/>
             <Space h={'md'}/>
 
             <List size={'sm'} withPadding>

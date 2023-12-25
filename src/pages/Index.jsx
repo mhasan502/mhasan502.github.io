@@ -13,7 +13,7 @@ const Index = () => {
           h={{base: 240, md: 260, lg: 300}}
           w="auto"
           radius={'55'}
-          src={'../../public/Mehedi.jpg'}
+          src={'/Mehedi.jpg'}
         />
       </Center>
       <Space h={'xl'}/>

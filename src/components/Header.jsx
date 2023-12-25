@@ -54,7 +54,7 @@ const Header = ({opened, toggle}) => {
             <Group justify='space-between' style={{flex: 1}}>
               <Link to={'/'} style={{textDecoration: 'none'}}>
                 <Group>
-                  <Image h={{base: 35, md: 45, lg: 55}} radius={'md'} src={'../../public/Mehedi.jpg'}/>
+                  <Image h={{base: 35, md: 45, lg: 55}} radius={'md'} src={'/Mehedi.jpg'}/>
                   <Title order={3} tt="uppercase" c={'blue'} style={{fontFamily: 'Chakra Petch'}}>
                     Md. Mehedi Hasan
                   </Title>
