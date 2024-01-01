@@ -36,7 +36,7 @@ const Education = () => {
           }>
             <Space h="lg"/>
 
-            <List p={5}>
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 CGPA: 3.77 / 4.00 (90-92% marks)
               </List.Item>
@@ -44,10 +44,9 @@ const Education = () => {
                 Graduated with Magna Cum Laude
               </List.Item>
               <List.Item>
-                <Text>
-                  Thesis Title:
-                  <Text fs='italic' span> Inter-Dataset Critical Evaluation of Common Object Detection Model.
-                  </Text>
+                  Thesis Title: &nbsp;
+                  <Text fs='italic' span inherit>
+                    Inter-Dataset Critical Evaluation of Common Object Detection Model.
                 </Text>
               </List.Item>
               <List.Item>

@@ -45,12 +45,12 @@ const Skills = () => {
         </List>
         <Space h={'lg'}/>
         <Divider my="xl"/>
-        <Text>
+        <Text size={'sm'}>
           I love working with different type of technologies. The above mentioned technologies I use large part of the
           day on work. I am flexible with programming languages and technologies. I have
         </Text>
         <Space h={'sm'}/>
-        <List p={5}>
+        <List size={'sm'} spacing={'3'}>
           <List.Item>
             built apps in <Mark color="gray.4">Java</Mark> to be used on client side.
           </List.Item>

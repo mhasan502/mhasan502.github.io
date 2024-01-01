@@ -36,7 +36,8 @@ const Experience = () => {
             </>
           }>
             <Space h={'lg'}/>
-            <List p={5}>
+
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 Developed and deployed machine learning models for RMG and retail store analytics projects, improving
                 performance and scalability by an average of 20%.
@@ -93,7 +94,7 @@ const Experience = () => {
               </Text>
             </>
           }>
-            <List p={5}>
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 Developed and maintained a high-traffic website for the International Conference on Computer and
                 Information Technology (ICCIT) 2021, garnering positive feedback from over 30,000 visitors.
@@ -142,7 +143,7 @@ const Experience = () => {
               </Text>
             </>
           }>
-            <List p={5}>
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 Conducted livelihood vulnerability assessment for 10,000+ people post-disaster, enabling targeted relief
                 distribution.
@@ -207,7 +208,7 @@ const Experience = () => {
             </Text>
             <Space h={'lg'}/>
 
-            <List p={5}>
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 Conducted tutorial sessions for students needing extra help outside of class hours.
               </List.Item>

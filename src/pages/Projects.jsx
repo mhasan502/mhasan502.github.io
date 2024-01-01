@@ -33,7 +33,7 @@ const Projects = () => {
           }>
             <Space h="lg"/>
 
-            <List p={5} size={'sm'} spacing={'3'}>
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 Developed a residual neural network-based age estimation model with a cost-sensitive learning approach
               </List.Item>
@@ -70,7 +70,7 @@ const Projects = () => {
           }>
             <Space h="lg"/>
 
-            <List p={5} size={'sm'} spacing={'3'}>
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 The web scraping script was written for parse news from three popular Bangaldeshi websites, Jugantor,
                 Ittefaq and Samakal
@@ -108,7 +108,7 @@ const Projects = () => {
           }>
             <Space h="lg"/>
 
-            <List p={5} size={'sm'} spacing={'3'}>
+            <List size={'sm'} spacing={'3'}>
               <List.Item>
                 Implemented core functionalities in Java, and employed Model—View—Presenter architecture.
               </List.Item>
