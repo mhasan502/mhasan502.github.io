@@ -1,6 +1,6 @@
-import Skeleton from "../components/Skeleton.jsx";
-import {Anchor, Container, Group, List, Space, Text, Timeline, Title} from "@mantine/core";
-import {IoApps} from "react-icons/io5";
+import Skeleton from '../components/Skeleton.jsx';
+import {Anchor, Container, Group, List, Space, Text, Timeline, Title} from '@mantine/core';
+import {IoApps} from 'react-icons/io5';
 
 const Projects = () => {
   return (
@@ -8,7 +8,7 @@ const Projects = () => {
       <Container size={'md'}>
         <Space h={'xl'}/>
 
-        <Group justify="center">
+        <Group justify='center'>
           <Title order={3}>
             <Group>
               <IoApps/> Projects
@@ -20,18 +20,18 @@ const Projects = () => {
         <Timeline active={3} bulletSize={20} radius={'sm'} p={0} m={0}>
           <Timeline.Item title={
             <>
-              <Group justify={"space-between"}>
-                <Anchor c={'dark'} target={"_blank"} href={'https://github.com/mhasan502/Age_Estimation'}>
+              <Group justify={'space-between'}>
+                <Anchor c='dark' target={'_blank'} href={'https://github.com/mhasan502/Age_Estimation'}>
                   Age Estimation Using Residual Neural Network with Cost Sensitive Learning Approach
                 </Anchor>
               </Group>
 
-              <Text size={'sm'} c={'dimmed'}>
+              <Text size={'sm'} c='dimmed'>
                 Technologies: PyTorch, NumPy, Python
               </Text>
             </>
           }>
-            <Space h="lg"/>
+            <Space h='lg'/>
 
             <List size={'sm'} spacing={'3'}>
               <List.Item>
@@ -52,23 +52,23 @@ const Projects = () => {
         <Timeline active={3} bulletSize={20} radius={'sm'} p={0} m={0}>
           <Timeline.Item title={
             <>
-              <Group justify={"space-between"}>
-                <Anchor c={'dark'} target={"_blank"} href={'https://github.com/mhasan502/Somachar'}>
+              <Group justify={'space-between'}>
+                <Anchor c='dark' target={'_blank'} href={'https://github.com/mhasan502/Somachar'}>
                   Somachar: A Scraping-Based Bengali Newspaper
                 </Anchor>
-                <Text bg={'gray.1'} style={{display: 'inline-block'}} px={5} py={3}>
-                  <Anchor target={"_blank"} href={'https://somachar.fly.dev/'}>
+                <Text bg='gray.1' style={{display: 'inline-block'}} px={5} py={3}>
+                  <Anchor target={'_blank'} href={'https://somachar.fly.dev/'}>
                     Live
                   </Anchor>
                 </Text>
               </Group>
 
-              <Text size={'sm'} c={'dimmed'}>
+              <Text size={'sm'} c='dimmed'>
                 Technologies: Django, BeautifulSoup, RESTful API, Tailwind CSS, SQLite, Google Authentication
               </Text>
             </>
           }>
-            <Space h="lg"/>
+            <Space h='lg'/>
 
             <List size={'sm'} spacing={'3'}>
               <List.Item>
@@ -95,18 +95,18 @@ const Projects = () => {
         <Timeline active={3} bulletSize={20} radius={'sm'} p={0} m={0}>
           <Timeline.Item title={
             <>
-              <Group justify={"space-between"}>
-                <Anchor c={'dark'} target={"_blank"} href={'https://github.com/mhasan502/Somachar-Android-App'}>
+              <Group justify={'space-between'}>
+                <Anchor c='dark' target={'_blank'} href={'https://github.com/mhasan502/Somachar-Android-App'}>
                   Somachar: The Android Newspaper
                 </Anchor>
               </Group>
 
-              <Text size={'sm'} c={'dimmed'}>
+              <Text size={'sm'} c='dimmed'>
                 Technologies: Java, RESTful API, XML, Google TTS
               </Text>
             </>
           }>
-            <Space h="lg"/>
+            <Space h='lg'/>
 
             <List size={'sm'} spacing={'3'}>
               <List.Item>
@@ -117,7 +117,7 @@ const Projects = () => {
               </List.Item>
               <List.Item>
                 A lightweight Particle Animation was employed as background based on Vincent Garreau&#39;s&nbsp;
-                <Anchor c={'dark'} target={'_blank'} href={'https://github.com/VincentGarreau/particles.js'} inherit>
+                <Anchor c='dark' target={'_blank'} href={'https://github.com/VincentGarreau/particles.js'} inherit>
                   particles.js
                 </Anchor>
               </List.Item>

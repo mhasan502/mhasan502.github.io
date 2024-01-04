@@ -1,6 +1,6 @@
-import Skeleton from "../components/Skeleton.jsx";
-import {Container, Group, List, Space, Title, Text, Mark, Divider} from "@mantine/core";
-import {VscTools} from "react-icons/vsc";
+import Skeleton from '../components/Skeleton.jsx';
+import {Container, Group, List, Space, Title, Text, Mark, Divider} from '@mantine/core';
+import {VscTools} from 'react-icons/vsc';
 
 const Skills = () => {
   return (
@@ -8,7 +8,7 @@ const Skills = () => {
       <Container size={'md'}>
         <Space h={'xl'}/>
 
-        <Group justify="center">
+        <Group justify='center'>
           <Title order={3}>
             <Group>
               <VscTools/> Skills
@@ -44,7 +44,7 @@ const Skills = () => {
           </List.Item>
         </List>
         <Space h={'lg'}/>
-        <Divider my="xl"/>
+        <Divider my='xl'/>
         <Text size={'sm'}>
           I love working with different type of technologies. The above mentioned technologies I use large part of the
           day on work. I am flexible with programming languages and technologies. I have
@@ -52,25 +52,25 @@ const Skills = () => {
         <Space h={'sm'}/>
         <List size={'sm'} spacing={'3'}>
           <List.Item>
-            built apps in <Mark color="gray.4">Java</Mark> to be used on client side.
+            built apps in <Mark color='gray.4'>Java</Mark> to be used on client side.
           </List.Item>
           <List.Item>
-            worked on Arduino variant of <Mark color="gray.4">C/C++</Mark> language to build Line-following Robots.
+            worked on Arduino variant of <Mark color='gray.4'>C/C++</Mark> language to build Line-following Robots.
           </List.Item>
           <List.Item>
-            built this portfolio website using <Mark color="gray.4">React</Mark>
+            built this portfolio website using <Mark color='gray.4'>React</Mark>
           </List.Item>
           <List.Item>
-            completed Database Management System course project in <Mark color="gray.4">PHP</Mark>
+            completed Database Management System course project in <Mark color='gray.4'>PHP</Mark>
           </List.Item>
           <List.Item>
-            achieved 95% marks in <Mark color="gray.4">Assembly</Mark> language lab.
+            achieved 95% marks in <Mark color='gray.4'>Assembly</Mark> language lab.
           </List.Item>
           <List.Item>
-            scraped data using <Mark color="gray.4">BeautifulSoup</Mark> from popular newspaper sites of Bangladesh.
+            scraped data using <Mark color='gray.4'>BeautifulSoup</Mark> from popular newspaper sites of Bangladesh.
           </List.Item>
           <List.Item>
-            solved couple competitive programming problems in <Mark color="gray.4">C#</Mark>
+            solved couple competitive programming problems in <Mark color='gray.4'>C#</Mark>
           </List.Item>
         </List>
 

@@ -1,8 +1,8 @@
-import Skeleton from "../components/Skeleton.jsx";
-import {Anchor, Center, Container, Group, Image, Space, Title} from "@mantine/core";
-import {FaGithub, FaLinkedin, FaStackOverflow, FaSteam} from "react-icons/fa";
-import {SiGooglescholar} from "react-icons/si";
-import {GoMail} from "react-icons/go";
+import Skeleton from '../components/Skeleton.jsx';
+import {Anchor, Center, Container, Group, Image, Space, Title} from '@mantine/core';
+import {FaGithub, FaLinkedin, FaStackOverflow, FaSteam} from 'react-icons/fa';
+import {SiGooglescholar} from 'react-icons/si';
+import {GoMail} from 'react-icons/go';
 
 const Index = () => {
   return (
@@ -11,7 +11,7 @@ const Index = () => {
       <Center>
         <Image
           h={{base: 240, md: 260, lg: 300}}
-          w="auto"
+          w='auto'
           radius={'55'}
           src={'/Mehedi.jpg'}
         />
@@ -38,24 +38,24 @@ const Index = () => {
       <Space h={'xl'}/>
 
       <Container size={'xs'}>
-        <Group justify="center">
-          <Anchor c={'#2c323b'} px={4} href={'mailto:mhasan502@gmail.com'} target={'_blank'}>
+        <Group justify='center'>
+          <Anchor c='#2c323b' px={4} href={'mailto:mhasan502@gmail.com'} target={'_blank'}>
             <GoMail size={36}/>
           </Anchor>
-          <Anchor c={'#2c323b'} px={4} href={'https://github.com/mhasan502'} target={'_blank'}>
+          <Anchor c='#2c323b' px={4} href={'https://github.com/mhasan502'} target={'_blank'}>
             <FaGithub size={36}/>
           </Anchor>
-          <Anchor c={'#0A65C0'} px={4} href={'https://linkedin.com/in/Mhasan502'} target={'_blank'}>
+          <Anchor c='#0A65C0' px={4} href={'https://linkedin.com/in/Mhasan502'} target={'_blank'}>
             <FaLinkedin size={36}/>
           </Anchor>
-          <Anchor c={'#2364d0'} px={4} href={'https://scholar.google.com/citations?user=1E7N-BoAAAAJ'}
+          <Anchor c='#2364d0' px={4} href={'https://scholar.google.com/citations?user=1E7N-BoAAAAJ'}
                   target={'_blank'}>
             <SiGooglescholar size={36}/>
           </Anchor>
-          <Anchor c={'#f48024'} px={4} href={'https://stackoverflow.com/users/14150890/mhasan502'} target={'_blank'}>
+          <Anchor c='#f48024' px={4} href={'https://stackoverflow.com/users/14150890/mhasan502'} target={'_blank'}>
             <FaStackOverflow size={36}/>
           </Anchor>
-          <Anchor c={'#030b67'} px={4} href={'https://steamcommunity.com/id/Mhasan502'} target={'_blank'}>
+          <Anchor c='#030b67' px={4} href={'https://steamcommunity.com/id/Mhasan502'} target={'_blank'}>
             <FaSteam size={36}/>
           </Anchor>
         </Group>

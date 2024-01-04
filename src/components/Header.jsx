@@ -55,7 +55,7 @@ const Header = ({opened, toggle}) => {
               <Link to={'/'} style={{textDecoration: 'none'}}>
                 <Group>
                   <Image h={{base: 35, md: 45, lg: 55}} radius={'md'} src={'/Mehedi.jpg'}/>
-                  <Title order={3} tt="uppercase" c={'blue'} style={{fontFamily: 'Chakra Petch'}}>
+                  <Title order={3} tt='uppercase' c={'blue'} style={{fontFamily: 'Chakra Petch'}}>
                     Md. Mehedi Hasan
                   </Title>
                 </Group>

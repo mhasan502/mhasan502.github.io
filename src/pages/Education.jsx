@@ -1,6 +1,6 @@
-import Skeleton from "../components/Skeleton.jsx";
-import {Container, Group, Space, Title, Text, Timeline, List, Anchor} from "@mantine/core";
-import {IoSchoolOutline} from "react-icons/io5";
+import Skeleton from '../components/Skeleton.jsx';
+import {Container, Group, Space, Title, Text, Timeline, List, Anchor} from '@mantine/core';
+import {IoSchoolOutline} from 'react-icons/io5';
 
 const Education = () => {
   return (
@@ -8,7 +8,7 @@ const Education = () => {
       <Container size={'md'}>
         <Space h={'xl'}/>
 
-        <Group justify="center">
+        <Group justify='center'>
           <Title order={3}>
             <Group>
               <IoSchoolOutline/> Education
@@ -19,22 +19,22 @@ const Education = () => {
         <Timeline active={3} bulletSize={20} radius={'sm'} p={0} m={0}>
           <Timeline.Item title={
             <>
-              <Group justify={"space-between"}>
+              <Group justify={'space-between'}>
                 <Text>Bachelor of Science in Computer Science and Engineering</Text>
-                <Text bg={'gray.1'} style={{display: 'inline-block'}} px={5} py={3}>
+                <Text bg='gray.1' style={{display: 'inline-block'}} px={5} py={3}>
                   Spring 2018 - Summer 2022
                 </Text>
               </Group>
 
-              <Text size={'sm'} c={'dimmed'}>
+              <Text size={'sm'} c='dimmed'>
                 Department of Electrical and Computer Engineering, &nbsp;
-                <Anchor c={'dark'} target={"_blank"} href={'http://northsouth.edu/'}>
+                <Anchor c='dark' target={'_blank'} href={'https://northsouth.edu/'}>
                   North South University
                 </Anchor>
               </Text>
             </>
           }>
-            <Space h="lg"/>
+            <Space h='lg'/>
 
             <List size={'sm'} spacing={'3'}>
               <List.Item>

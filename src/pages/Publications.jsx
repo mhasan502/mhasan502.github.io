@@ -1,7 +1,7 @@
-import Skeleton from "../components/Skeleton.jsx";
+import Skeleton from '../components/Skeleton.jsx';
 import {Container, List, Title, Text, Space, Anchor, Image, Group, Modal} from '@mantine/core';
-import {RiDraftLine} from "react-icons/ri";
-import {useDisclosure} from "@mantine/hooks";
+import {RiDraftLine} from 'react-icons/ri';
+import {useDisclosure} from '@mantine/hooks';
 
 const Publications = () => {
   const [opened, {open, close}] = useDisclosure(false);
@@ -11,7 +11,7 @@ const Publications = () => {
       <Container size={'md'}>
         <Space h={'xl'}/>
 
-        <Group justify="center">
+        <Group justify='center'>
           <Title order={3}>
             <Group>
               <RiDraftLine/> Publications
@@ -20,12 +20,12 @@ const Publications = () => {
         </Group>
         <Space h={'lg'}/>
 
-        <List type="ordered" size={'sm'} spacing={'3'}>
+        <List type='ordered' size={'sm'} spacing={'3'}>
           <List.Item>
             <Text span fw={700}>Hasan, Md Mehedi &#42; </Text>,
             Md Sahjalal Mondol Nilay, Nahid Hossain Jibon, and Rashedur M. Rahman.
-            <Anchor href="https://doi.org/10.1016/j.rineng.2023.101079" target="_blank">
-              <Text c={'blue.6'} fw={600}>
+            <Anchor href='https://doi.org/10.1016/j.rineng.2023.101079' target='_blank'>
+              <Text c='blue.6' fw={600}>
                 &#x201C;
                 LULC changes to riverine flooding: A case study on the Jamuna River, Bangladesh using the multilayer
                 perceptron model
@@ -42,10 +42,10 @@ const Publications = () => {
               onClose={close}
               centered
             >
-              <Image src="/Graphical Abstract.png"/>
+              <Image src='/Graphical Abstract.png'/>
             </Modal>
 
-            <Image radius={'lg'} src="/Graphical Abstract.png" onClick={open}/>
+            <Image radius={'lg'} src='/Graphical Abstract.png' onClick={open}/>
             <Space h={'md'}/>
           </List.Item>
         </List>

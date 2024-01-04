@@ -1,6 +1,6 @@
-import Skeleton from "../components/Skeleton.jsx";
-import {IoBriefcaseOutline} from "react-icons/io5";
-import {Anchor, Container, Divider, Group, List, Space, Text, Timeline, Title} from "@mantine/core";
+import Skeleton from '../components/Skeleton.jsx';
+import {IoBriefcaseOutline} from 'react-icons/io5';
+import {Anchor, Container, Divider, Group, List, Space, Text, Timeline, Title} from '@mantine/core';
 
 const Experience = () => {
   return (
@@ -8,7 +8,7 @@ const Experience = () => {
       <Container size={'md'}>
         <Space h={'xl'}/>
 
-        <Group justify="center">
+        <Group justify='center'>
           <Title order={3}>
             <Group>
               <IoBriefcaseOutline/> Experience
@@ -20,16 +20,16 @@ const Experience = () => {
         <Timeline active={3} bulletSize={20} radius={'sm'} p={0} m={0}>
           <Timeline.Item title={
             <>
-              <Group justify={"space-between"}>
+              <Group justify={'space-between'}>
                 <Text>Junior Machine Learning Engineer</Text>
-                <Text bg={'gray.1'} style={{display: 'inline-block'}} px={5} py={3}>
+                <Text bg='gray.1' style={{display: 'inline-block'}} px={5} py={3}>
                   January 2023 - Present
                 </Text>
               </Group>
 
-              <Text size={'sm'} c={'dimmed'}>
+              <Text size={'sm'} c='dimmed'>
                 Team Helios, &nbsp;
-                <Anchor c={'dark'} target={"_blank"} href={'https://altersense.com/'}>
+                <Anchor c='dark' target={'_blank'} href={'https://altersense.com/'}>
                   AlterSense Limited
                 </Anchor>
               </Text>
@@ -61,21 +61,21 @@ const Experience = () => {
             <>
               <Group justify={'space-between'}>
                 <Text>Web Development Associate</Text>
-                <Text bg={'gray.1'} style={{display: 'inline-block'}} px={5} py={3}>
+                <Text bg='gray.1' style={{display: 'inline-block'}} px={5} py={3}>
                   July 2021 - December 2021
                 </Text>
               </Group>
 
-              <Text size={'sm'} c={'dimmed'}>
+              <Text size={'sm'} c='dimmed'>
                 Department of Electrical and Computer Engineering, &nbsp;
-                <Anchor c={'dark'} target={'_blank'} href={'http://northsouth.edu/'}>
+                <Anchor c='dark' target={'_blank'} href={'https://northsouth.edu/'}>
                   North South University
                 </Anchor>
               </Text>
-              <Text size={'xs'} c={'dimmed'}>
+              <Text size={'xs'} c='dimmed'>
                 Supervised by: &nbsp;
                 <Anchor
-                  c={'dimmed'}
+                  c='dimmed'
                   td={'underline'}
                   target={'_blank'}
                   href={'http://ece.northsouth.edu/people/rashedur-rahman/'}
@@ -84,7 +84,7 @@ const Experience = () => {
                 </Anchor>
                 , and &nbsp;
                 <Anchor
-                  c={'dimmed'}
+                  c='dimmed'
                   td={'underline'}
                   target={'_blank'}
                   href={'http://ece.northsouth.edu/people/lutfe-elahi/'}
@@ -110,21 +110,21 @@ const Experience = () => {
             <>
               <Group justify={'space-between'}>
                 <Text>Software Development Associate</Text>
-                <Text bg={'gray.1'} style={{display: 'inline-block'}} px={5} py={3}>
+                <Text bg='gray.1' style={{display: 'inline-block'}} px={5} py={3}>
                   June 2021 - July 2021
                 </Text>
               </Group>
 
-              <Text size={'sm'} c={'dimmed'}>
+              <Text size={'sm'} c='dimmed'>
                 Department of Electrical and Computer Engineering, &nbsp;
-                <Anchor c={'dark'} target={'_blank'} href={'http://northsouth.edu/'}>
+                <Anchor c='dark' target={'_blank'} href={'https://northsouth.edu/'}>
                   North South University
                 </Anchor>
               </Text>
-              <Text size={'xs'} c={'dimmed'}>
+              <Text size={'xs'} c='dimmed'>
                 Supervised by: &nbsp;
                 <Anchor
-                  c={'dimmed'}
+                  c='dimmed'
                   td={'underline'}
                   target={'_blank'}
                   href={'http://ece.northsouth.edu/people/lutfe-elahi/'}
@@ -133,7 +133,7 @@ const Experience = () => {
                 </Anchor>
                 , and &nbsp;
                 <Anchor
-                  c={'dimmed'}
+                  c='dimmed'
                   td={'underline'}
                   target={'_blank'}
                   href={'http://ece.northsouth.edu/people/silvia-ahmed/'}
@@ -165,22 +165,22 @@ const Experience = () => {
           <Timeline.Item>
             <Group justify={'space-between'}>
               <Text>Undergraduate Teaching Assistant</Text>
-              <Text bg={'gray.1'} style={{display: 'inline-block'}} px={5} py={3}>
+              <Text bg='gray.1' style={{display: 'inline-block'}} px={5} py={3}>
                 June 2022 - September 2022
               </Text>
             </Group>
 
-            <Text size={'sm'} c={'dimmed'}>
+            <Text size={'sm'} c='dimmed'>
               Department of Electrical and Computer Engineering, &nbsp;
-              <Anchor c={'dark'} target={'_blank'} href={'http://ece.northsouth.edu/'}>
+              <Anchor c='dark' target={'_blank'} href={'http://ece.northsouth.edu/'}>
                 North South University
               </Anchor>
             </Text>
 
-            <Text size={'xs'} c={'dimmed'}>
+            <Text size={'xs'} c='dimmed'>
               Worked and collaborated with &nbsp;
               <Anchor
-                c={'dimmed'}
+                c='dimmed'
                 td={'underline'}
                 href={'http://ece.northsouth.edu/people/dr-nabeel-mohammed/'}
                 target={'_blank'}
@@ -189,7 +189,7 @@ const Experience = () => {
               </Anchor>
               , &nbsp;
               <Anchor
-                c={'dimmed'}
+                c='dimmed'
                 td={'underline'}
                 href={'https://www.du.ac.bd/faculty/faculty_details/CSE/2585'}
                 target={'_blank'}
@@ -198,7 +198,7 @@ const Experience = () => {
               </Anchor>
               , and &nbsp;
               <Anchor
-                c={'dimmed'}
+                c='dimmed'
                 td={'underline'}
                 href={'https://juniv.edu/teachers/sarnali.cse'}
                 target={'_blank'}
