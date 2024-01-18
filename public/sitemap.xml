@@ -2,26 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://mhasan502.github.io/</loc>
-        <changefreq>weekly</changefreq>
     </url>
     <url>
-        <loc>https://mhasan502.github.io/experience/</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://mhasan502.github.io/#/experience/</loc>
     </url>
     <url>
-        <loc>https://mhasan502.github.io/education/</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://mhasan502.github.io/#/education/</loc>
     </url>
     <url>
-        <loc>https://mhasan502.github.io/projects/</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://mhasan502.github.io/#/projects/</loc>
     </url>
     <url>
-        <loc>https://mhasan502.github.io/skills/</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://mhasan502.github.io/#/skills/</loc>
     </url>
     <url>
-        <loc>https://mhasan502.github.io/publications/</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://mhasan502.github.io/#/publications/</loc>
     </url>
 </urlset>

@@ -1,4 +1,4 @@
-import {MemoryRouter, Route, Routes} from 'react-router-dom';
+import {HashRouter, Route, Routes} from 'react-router-dom';
 import Index from './pages/Index.jsx'
 import Education from './pages/Education.jsx';
 import Experience from './pages/Experience.jsx';
@@ -8,7 +8,7 @@ import Skills from './pages/Skills.jsx';
 
 function Router() {
 	return (
-		<MemoryRouter>
+		<HashRouter>
 			<Routes>
 				<Route path={''} element={<Index/>}/>
 				<Route path={'/experience/'} element={<Experience/>}/>
@@ -17,7 +17,7 @@ function Router() {
 				<Route path={'/skills/'} element={<Skills/>}/>
 				<Route path={'/publications/'} element={<Publications/>}/>
 			</Routes>
-		</MemoryRouter>
+		</HashRouter>
 	);
 }
 
