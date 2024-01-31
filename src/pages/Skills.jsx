@@ -1,10 +1,9 @@
-import Skeleton from '../components/Skeleton.jsx';
-import {Container, Group, List, Space, Title, Text, Mark, Divider} from '@mantine/core';
+import {Container, Divider, Group, List, Mark, Space, Text, Title} from '@mantine/core';
 import {VscTools} from 'react-icons/vsc';
 
 const Skills = () => {
   return (
-    <Skeleton>
+    <>
       <Container size={'md'}>
         <Space h={'xl'}/>
 
@@ -75,7 +74,7 @@ const Skills = () => {
         </List>
 
       </Container>
-    </Skeleton>
+    </>
   );
 }
 

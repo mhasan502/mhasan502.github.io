@@ -1,4 +1,3 @@
-import Skeleton from '../components/Skeleton.jsx';
 import {Anchor, Center, Container, Group, Image, Space, Title} from '@mantine/core';
 import {FaGithub, FaLinkedin, FaStackOverflow, FaSteam} from 'react-icons/fa';
 import {SiGooglescholar} from 'react-icons/si';
@@ -6,7 +5,7 @@ import {GoMail} from 'react-icons/go';
 
 const Index = () => {
   return (
-    <Skeleton>
+    <>
       <Space h={'xl'}/>
       <Center>
         <Image
@@ -61,7 +60,7 @@ const Index = () => {
         </Group>
       </Container>
 
-    </Skeleton>
+    </>
   );
 }
 

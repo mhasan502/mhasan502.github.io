@@ -1,10 +1,9 @@
-import Skeleton from '../components/Skeleton.jsx';
-import {Container, Group, Space, Title, Text, Timeline, List, Anchor} from '@mantine/core';
+import {Anchor, Container, Group, List, Space, Text, Timeline, Title} from '@mantine/core';
 import {IoSchoolOutline} from 'react-icons/io5';
 
 const Education = () => {
   return (
-    <Skeleton>
+    <>
       <Container size={'md'}>
         <Space h={'xl'}/>
 
@@ -44,9 +43,9 @@ const Education = () => {
                 Graduated with Magna Cum Laude
               </List.Item>
               <List.Item>
-                  Thesis Title: &nbsp;
-                  <Text fs='italic' span inherit>
-                    Inter-Dataset Critical Evaluation of Common Object Detection Model.
+                Thesis Title: &nbsp;
+                <Text fs='italic' span inherit>
+                  Inter-Dataset Critical Evaluation of Common Object Detection Model.
                 </Text>
               </List.Item>
               <List.Item>
@@ -58,7 +57,7 @@ const Education = () => {
         </Timeline>
 
       </Container>
-    </Skeleton>
+    </>
   )
     ;
 }

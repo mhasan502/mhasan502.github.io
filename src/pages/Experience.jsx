@@ -1,10 +1,9 @@
-import Skeleton from '../components/Skeleton.jsx';
 import {IoBriefcaseOutline} from 'react-icons/io5';
 import {Anchor, Container, Divider, Group, List, Space, Text, Timeline, Title} from '@mantine/core';
 
 const Experience = () => {
   return (
-    <Skeleton>
+    <>
       <Container size={'md'}>
         <Space h={'xl'}/>
 
@@ -229,7 +228,7 @@ const Experience = () => {
           </Timeline.Item>
         </Timeline>
       </Container>
-    </Skeleton>
+    </>
   );
 }
 

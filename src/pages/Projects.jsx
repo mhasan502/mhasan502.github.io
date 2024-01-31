@@ -1,10 +1,9 @@
-import Skeleton from '../components/Skeleton.jsx';
 import {Anchor, Container, Group, List, Space, Text, Timeline, Title} from '@mantine/core';
 import {IoApps} from 'react-icons/io5';
 
 const Projects = () => {
   return (
-    <Skeleton>
+    <>
       <Container size={'md'}>
         <Space h={'xl'}/>
 
@@ -129,7 +128,7 @@ const Projects = () => {
           </Timeline.Item>
         </Timeline>
       </Container>
-    </Skeleton>
+    </>
   );
 }
 

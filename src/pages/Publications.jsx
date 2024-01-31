@@ -1,5 +1,4 @@
-import Skeleton from '../components/Skeleton.jsx';
-import {Container, List, Title, Text, Space, Anchor, Image, Group, Modal} from '@mantine/core';
+import {Anchor, Container, Group, Image, List, Modal, Space, Text, Title} from '@mantine/core';
 import {RiDraftLine} from 'react-icons/ri';
 import {useDisclosure} from '@mantine/hooks';
 
@@ -7,7 +6,7 @@ const Publications = () => {
   const [opened, {open, close}] = useDisclosure(false);
 
   return (
-    <Skeleton>
+    <>
       <Container size={'md'}>
         <Space h={'xl'}/>
 
@@ -72,7 +71,7 @@ const Publications = () => {
         </List>
 
       </Container>
-    </Skeleton>
+    </>
   );
 }
 
