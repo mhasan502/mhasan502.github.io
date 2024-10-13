@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&display=swap');
 @import '@mantine/core/styles.css';
-@import '@mantine/carousel/styles.css';
+@import 'LocomotiveScroll.css';
+
+.mantine-AppShell-main {
+    padding-inline-start: 1px;
+}
+.active-button {
+    background-color: blue;
+    color: white;
+}

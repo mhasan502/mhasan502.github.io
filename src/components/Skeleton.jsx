@@ -1,11 +1,12 @@
 import {AppShell} from '@mantine/core';
-import Header from './Header.jsx';
 import {useDisclosure} from '@mantine/hooks';
 import {IconContext} from 'react-icons';
 import PropTypes from 'prop-types';
+import Header from './Header.jsx';
 
 const Skeleton = ({children}) => {
   const [opened, {toggle}] = useDisclosure();
+
   return (
     <AppShell
       header={{
@@ -16,8 +17,11 @@ const Skeleton = ({children}) => {
         breakpoint: 'sm',
         collapsed: {desktop: true, mobile: !opened}
       }}
-      padding='md'>
-      <Header opened={opened} toggle={toggle}/>
+      padding={'md'}
+    >
+      <AppShell.Header>
+        <Header opened={opened} toggle={toggle}/>
+      </AppShell.Header>
       <AppShell.Main>
         <IconContext.Provider value={{style: {verticalAlign: 'middle'}}}>
           {children}
@@ -28,7 +32,7 @@ const Skeleton = ({children}) => {
 }
 
 Skeleton.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 export default Skeleton;

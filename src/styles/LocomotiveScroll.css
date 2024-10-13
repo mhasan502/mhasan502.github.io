@@ -1,0 +1,19 @@
+[data-scroll-container] {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.scroll-section {
+    min-height: 90vh; /* Ensure each section takes at least full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Uniform space size between each page */
+}
+
+.scroll-section > * {
+    width: 95%;
+    margin: auto;
+}
