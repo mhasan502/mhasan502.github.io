@@ -3,11 +3,11 @@ import {VscTools} from 'react-icons/vsc';
 
 const skillsData = [
   {category: 'Programming Languages', skills: 'Python, C++, Java'},
-  {category: 'Machine Learning Libraries', skills: 'PyTorch, TensorFlow, Sci-Kit Learn'},
+  {category: 'AI Libraries', skills: 'PyTorch, Langchain, Sci-Kit Learn'},
   {category: 'Data Engineering', skills: 'Apache Kafka, Apache Flink, Apache Airflow'},
   {category: 'Databases', skills: 'MongoDB, Redis, MySQL'},
-  {category: 'Web', skills: 'Django, FastAPI, RESTful API'},
-  {category: 'Other', skills: 'Docker, Bash, ArcGIS'},
+  {category: 'Web', skills: 'FastAPI, Django'},
+  {category: 'Other', skills: 'Docker, Bash, RAG, ArcGIS'},
 ];
 
 const Skills = () => {
@@ -20,6 +20,7 @@ const Skills = () => {
             </Group>
           </Title>
         </Group>
+
         <Space h={'lg'}/>
 
         <List p={5}>

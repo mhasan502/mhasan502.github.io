@@ -48,19 +48,21 @@ const Index = () => {
 
         <Center>
           <Container size={'lg'} style={{paddingInline: '1vh'}}>
-            A dedicated and innovative Machine Learning Engineer with {experience.roundedYears} years of
-            experience in developing and deploying sophisticated machine learning solutions. Specializing in real-time
-            vision inference pipelines, with a focus on enhancing surveillance systems, video analysis, and real-time
-            analytics.
+            A dedicated and innovative AI Engineer with {experience.roundedYears}+ years of experience in developing and deploying
+            sophisticated AI solutions. Specializing in real-time vision inference pipelines, with a focus on
+            enhancing surveillance systems, video analysis, and real-time analytics. Additionally experienced in
+            building AI Agents and implementing Retrieval-Augmented Generation (RAG) architectures to deliver
+            context-aware, intelligent systems for various enterprise applications.
 
             <Space h={'md'} />
 
-            With a proven track record across diverse industries—including Ready-Made Garments (RMG), Retail, and
-            Transportation —bringing a unique combination of technical expertise and industry insight to each project.
-            Eager to contribute expertise and innovation to a collaborative team. Feel free to reach out by email or
-            connect on LinkedIn.
+            With a proven track record across diverse industries—including Ready-Made Garments (RMG), Retail,
+            Transportation and Construction Logistics —bringing a unique combination of technical expertise and
+            industry insight to each project. Eager to contribute expertise and innovation to a collaborative team.
+            Feel free to reach out by email or connect on LinkedIn.
           </Container>
         </Center>
+        <Space h={'xl'}/>
         <Space h={'xl'}/>
 
         <Container style={{paddingInline: '1vh'}}>
