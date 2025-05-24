@@ -1,4 +1,4 @@
-import {Anchor, Center, Container, Group, Image, Space, Title} from '@mantine/core';
+import {Anchor, Center, Container, Group, Image, Space, Text, Title} from '@mantine/core';
 import {FaGithub, FaLinkedin, FaStackOverflow} from 'react-icons/fa';
 import {SiGooglescholar} from 'react-icons/si';
 import {GoMail} from 'react-icons/go';
@@ -24,7 +24,7 @@ const Index = () => {
     );
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
-    const roundedYears = months >= 6 ? years + 1 : years;
+    const roundedYears = months >= 6 ? years + 0.5 : years;
 
     setExperience({years, roundedYears});
   }, []);
@@ -48,7 +48,7 @@ const Index = () => {
 
         <Center>
           <Container size={'lg'} style={{paddingInline: '1vh'}}>
-            A dedicated and innovative AI Engineer with {experience.roundedYears}+ years of experience in developing and deploying
+            A dedicated and innovative AI Engineer with <Text span fw={700}>{experience.roundedYears}+ years</Text> of experience in developing and deploying
             sophisticated AI solutions. Specializing in real-time vision inference pipelines, with a focus on
             enhancing surveillance systems, video analysis, and real-time analytics. Additionally experienced in
             building AI Agents and implementing Retrieval-Augmented Generation (RAG) architectures to deliver
