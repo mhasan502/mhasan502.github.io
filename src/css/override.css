@@ -1,0 +1,20 @@
+@media (min-width: 996px) {
+  .blog-wrapper .container .row > .col--7 {
+    --ifm-col-width: calc(8 / 12 * 100%)
+  }
+
+  .blog-wrapper .container .row > .col--3 {
+    --ifm-col-width: calc(2 / 12 * 100%)
+  }
+}
+
+@media (min-width: 576px) {
+  article > header > h1 {
+    font-size: 2.25rem;
+  }
+}
+
+pre > code > span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
