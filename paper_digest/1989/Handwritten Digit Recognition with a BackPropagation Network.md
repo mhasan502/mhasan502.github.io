@@ -1,15 +1,15 @@
 ---
 date: 2025-06-18
+slug: handwritten-digit-recognition-with-a-backpropagation-network
 ---
 
 # Understanding LeNet‑1: A Gentle Introduction
-Implementing the first convolutional neural network for handwritten‑digit recognition (MNIST) in PyTorch from scratch.
-
-### Motivation
-Handwritten digits powered the first wave of real‑world neural network applications: bank‑check reading and postal sorting.
-Yet in 1989, recognizing a fuzzy '9' or slanted '2' was far from trivial—traditional computer‑vision rules broke down on messy, human‑made data.
+In 1989, the introduction of the LeNet-1 neural network model marked a significant advancement in machine learning. This innovative model utilized a combination of weight-sharing filters and hyperbolic tangent (tanh) activations, all processed on a standard single CPU, to effectively recognize handwritten digits. This achievement outperformed traditional rule-based systems, which relied on manually crafted features. LeNet-1 provided compelling evidence that computers could independently identify patterns in data without human intervention, relying solely on data input and learnable filter parameters. This breakthrough laid the foundational groundwork for what we now refer to as deep learning, establishing a direct lineage to contemporary neural network architectures and techniques.
 
 <!--truncate -->
+
+### Motivation
+The recognition of handwritten digits was essential for early neural network applications like bank check processing and postal sorting. However, by 1989, accurately identifying distorted characters, such as a fuzzy '9' or slanted '2,' remained challenging. Traditional computer vision techniques struggled with the variability of human handwriting, including ink smudges and different paper textures, underscoring the need for more advanced pattern recognition methods.
 
 ### Background
 | Concept                      | One‑liner                                                                 |
@@ -21,7 +21,7 @@ Yet in 1989, recognizing a fuzzy '9' or slanted '2' was far from trivial—tradi
 | **Softmax & Cross‑Entropy**  | Turns logits into probabilities and measures classification loss.         |
 
 ### Problem Statement & Contributions
-Task: Classify a 16×16 gray‑scale image of a single digit (0‑9).
+**Task**: Classify a 16×16 gray‑scale image of a single digit (0‑9).
 
 Paper contributions:
 - First end‑to‑end CNN trained with gradient descent that outperformed previous methods that relied on manually designed features.
@@ -32,7 +32,7 @@ Paper contributions:
 
 ### Deep Dive: How It Works
 :::info[Essence]
-Slide small learnable filters over the image, shrink the map, and feed flattened features into a tiny MLP
+Slide small learnable filters over the image, shrink the map, and feed flattened features into a tiny MLP.
 :::
 
 #### 1. Preprocessing
@@ -61,8 +61,7 @@ $$
 - $\sigma$: The activation function is applied element-wise to the result.
 - $\alpha$: A learnable scalar that scales the result of average pooling.
 - $\beta$: A learnable scalar bias added to the pooled value.
-- $\text{input}(2i + u, 2j + v)$: A pixel from a 2x2 patch of the input feature map, starting at location $(2i, 2j)$.
-  The pooling operation computes the average of all four such pixels.
+- $\text{input}(2i + u, 2j + v)$: A pixel from a 2x2 patch of the input feature map, starting at location $(2i, 2j)$. The pooling operation computes the average of all four such pixels.
 
 #### 4. Fully Connected + Softmax
 The final layer consists of a small MLP that processes the flattened pooled features and generates logits for each digit class.
@@ -95,22 +94,22 @@ class LeNet1(nn.Module):
 
 ## Critical Analysis & Extensions
 #### Strengths
-- Tiny model fits 1980s hardware.
-- Handles little nudges automatically.
-- Sparked the convolutional paradigm that is still dominant today.
+- The model is small enough to run on 1980s hardware.
+- It automatically adjusts to minor changes.
+- It started the convolutional approach that is still widely used today.
 
 #### Limitations
-- Shallow; struggles on complex images.
-- Avg‑pooling discards useful high‑freq details.
-- Tanh saturates; training can be slow vs. ReLU.
+- The model is shallow and does not handle complex images well.
+- Average pooling removes important high-frequency details.
+- The Tanh function can slow down training compared to ReLU.
 
 ## Original Paper
 - [Handwritten Digit Recognition with a Back-Propagation Network](https://proceedings.neurips.cc/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf) by Yann LeCun et al. (1989)
+
 :::tip
-LeNet comes in several flavours (e.g., LeNet-3/4/5); each variant tweaks filter counts, pooling, and input size, but the underlying recipe of convolution + pooling + MLP stays the same.
+LeNet comes in several flavors (e.g., LeNet-3/4/5); each variant tweaks filter counts, pooling, and input size, but the underlying recipe of convolution + pooling + MLP stays the same.
 :::
 ## Conclusion
-LeNet-1 may appear modest by today's standards, but it established three key concepts—local receptive fields, weight
-sharing, and hierarchical feature extraction—that remain fundamental to modern deep learning vision systems. By
-implementing the network, you observed how approximately 3,000 parameters, tanh activations, and average pooling can
-achieve near-human accuracy in recognizing handwritten digits.
+LeNet-1, although it may seem modest compared to today's advanced architectures, was groundbreaking in its introduction of three pivotal concepts that continue to shape the landscape of modern deep-learning vision systems. These concepts include local receptive fields, which allow the network to focus on specific regions of an input image; weight sharing, which ensures efficiency by using the same weights across different parts of the network; and hierarchical feature extraction, which enables the model to learn progressively more complex features at each layer.
+
+In experimenting with this network, it becomes evident that utilizing approximately 3,000 parameters, combined with tanh activation functions and average pooling operations, can lead to an impressive accuracy in recognizing handwritten digits—often rivaling human performance. This remarkable capability underscores the foundational role LeNet-1 plays in the evolution of neural networks and their applications in visual recognition tasks.

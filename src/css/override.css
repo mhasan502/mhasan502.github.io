@@ -1,3 +1,12 @@
+pre > code > span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+
+.markdown > pre, .markdown > ul, .markdown > p {
+  text-align: justify;
+}
+
 @media (min-width: 996px) {
   .blog-wrapper .container .row > .col--7 {
     --ifm-col-width: calc(8 / 12 * 100%)
@@ -14,7 +23,8 @@
   }
 }
 
-pre > code > span {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
+@media screen and (max-width: 576px) {
+  .katex-display > .katex {
+    font-size: 15px;
+  }
 }
