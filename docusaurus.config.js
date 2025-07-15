@@ -65,10 +65,10 @@ const config = {
         // },
         blog: {
           blogSidebarTitle: 'Recent posts',
-          path: 'paper_digest',
+          path: 'blog',
           postsPerPage: 10,
           blogSidebarCount: 10,
-          routeBasePath: 'paper_digest',
+          routeBasePath: 'blog',
           showReadingTime: false,
           feedOptions: {
             type: ['rss', 'atom'],
@@ -126,7 +126,7 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorial',
           // },
-          {to: '/paper_digest', label: 'Paper Digest', position: 'left'},
+          {to: '/blog', label: 'Blog', position: 'left'},
         ],
       },
       prism: {
