@@ -25,14 +25,9 @@ function EducationTimelineContent() {
     <div className={styles.timeline__parent}>
       {educationsData.map((edu, idx) => (
         <div className={styles.timeline__item} key={idx}>
-          <div className={styles.timeline__separator}>
-            <div className={styles.timeline__dot}/>
-            <div className={styles.timeline__connector}/>
-            <div className={styles.timeline__dot}/>
-          </div>
           <div className={styles.timeline__content}>
             <div className={styles.timeline__action}>
-              <p className={styles.timeline__action__title}>{edu.degree}</p>
+              <Heading as="h3" className={styles.timeline__action__title}>{edu.degree}</Heading>
               <span className={styles.timeline__action__period} style={{backgroundColor: dateBackgroundColor}}>
                 {edu.period}
               </span>
