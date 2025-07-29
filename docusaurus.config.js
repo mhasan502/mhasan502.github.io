@@ -63,25 +63,26 @@ const config = {
         // docs: {
         //   sidebarPath: './sidebars.js',
         // },
-        blog: {
-          blogSidebarTitle: 'Recent posts',
-          path: 'blog',
-          postsPerPage: 10,
-          blogSidebarCount: 10,
-          routeBasePath: 'blog',
-          showReadingTime: false,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-          // Math Equation support
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
-        },
+        blog: false, //
+        // blog: {
+        //   blogSidebarTitle: 'Recent posts',
+        //   path: 'blog',
+        //   postsPerPage: 10,
+        //   blogSidebarCount: 10,
+        //   routeBasePath: 'blog',
+        //   showReadingTime: false,
+        //   feedOptions: {
+        //     type: ['rss', 'atom'],
+        //     xslt: true,
+        //   },
+        //   // Useful options to enforce blogging best practices
+        //   onInlineTags: 'warn',
+        //   onInlineAuthors: 'warn',
+        //   onUntruncatedBlogPosts: 'warn',
+        //   // Math Equation support
+        //   remarkPlugins: [remarkMath],
+        //   rehypePlugins: [rehypeKatex],
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css',)
         },
@@ -126,7 +127,7 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorial',
           // },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          // {to: '/blog', label: 'Blog', position: 'left'},
         ],
       },
       prism: {
