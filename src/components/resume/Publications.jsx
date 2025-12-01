@@ -40,9 +40,9 @@ export default function Publications() {
             <p>
               {pub.authors.map((author, i) => (
                 <span key={i}>
-                    {author.bold ? <strong>{author.name}*</strong> : author.name}
+                  {author.bold ? <strong>{author.name}*</strong> : author.name}
                   {i < pub.authors.length - 1 && ", "}
-                  </span>
+                </span>
               ))}
               <br/>
               <a

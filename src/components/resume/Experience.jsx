@@ -1,7 +1,8 @@
 import Heading from "@theme/Heading";
 import styles from "@site/src/css/resume.module.css";
-import {useColorMode} from "@docusaurus/theme-common";
-import {IoBriefcaseOutline} from "react-icons/io5";
+import { useColorMode } from "@docusaurus/theme-common";
+import React, { useState, useRef, useEffect } from "react";
+import { IoBriefcaseOutline, IoChevronDown } from "react-icons/io5";
 
 const experiences = [
   {
@@ -83,25 +84,46 @@ const experiences = [
   },
 ];
 
-function ExperienceTimelineContent() {
-  const {colorMode} = useColorMode();
+function ExperienceItem({ exp, isLast }) {
+  const { colorMode } = useColorMode();
   const dateBackgroundColor = colorMode === "dark" ? "#616161" : "#F1F3F5";
+  const [isOpen, setIsOpen] = useState(false);
+  const contentRef = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) {
+      setHeight(contentRef.current.scrollHeight);
+    } else {
+      setHeight(0);
+    }
+  }, [isOpen]);
+
+  const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div className={styles.timeline__parent}>
-      {experiences.map((exp, idx) => (
-        <div className={styles.timeline__item} key={idx}>
-          <div className={styles.timeline__separator}>
-            <div className={styles.timeline__dot}/>
-            {idx < experiences.length - 1 && (
-              <div className={styles.timeline__connector}/>
-            )}
-          </div>
+    <div className={styles.timeline__item}>
+      <div className={styles.timeline__separator}>
+        <div className={styles.timeline__dot} />
+        {!isLast && <div className={styles.timeline__connector} />}
+      </div>
 
-          <div className={styles.timeline__content}>
+      <div className={styles.timeline__content}>
+        <div className={styles.timeline__header} onClick={toggleOpen}>
+          <div className={styles.timeline__header__content}>
             <div className={styles.timeline__action}>
-              <p className={styles.timeline__action__title}>{exp.title}</p>
-              <span className={styles.timeline__action__period} style={{backgroundColor: dateBackgroundColor}}>
+              <p className={styles.timeline__action__title}>
+                {exp.title}
+                <IoChevronDown
+                  className={`${styles.timeline__chevron} ${styles.timeline__chevron__pc} ${isOpen ? styles.timeline__chevron__rotated : ""
+                    }`}
+                  size={20}
+                />
+              </p>
+              <span
+                className={styles.timeline__action__period}
+                style={{ backgroundColor: dateBackgroundColor }}
+              >
                 {exp.period}
               </span>
             </div>
@@ -112,16 +134,47 @@ function ExperienceTimelineContent() {
                 {exp.adviserLine}
               </p>
             )}
-
-            <ul className={styles.timeline__bullet__list}>
-              {exp.details.map((point, i) => (
-                <li key={i} className={styles.timeline__bullet__list__items}>
-                  {point}
-                </li>
-              ))}
-            </ul>
           </div>
+          <IoChevronDown
+            className={`${styles.timeline__chevron} ${styles.timeline__chevron__mobile} ${isOpen ? styles.timeline__chevron__rotated : ""
+              }`}
+            size={20}
+          />
         </div>
+
+        <div
+          className={`${styles.timeline__details__wrapper} ${isOpen ? styles.open : ""
+            }`}
+          style={{ maxHeight: `${height}px` }}
+          ref={contentRef}
+        >
+          <ul className={styles.timeline__bullet__list}>
+            {exp.details.map((point, i) => (
+              <li
+                key={i}
+                className={`${styles.timeline__bullet__list__items} ${styles.timeline__bullet__list__items__animated} ${isOpen ? styles.visible : ""
+                  }`}
+                style={{ transitionDelay: `${i * 100}ms` }}
+              >
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ExperienceTimelineContent() {
+  return (
+    <div className={styles.timeline__parent}>
+      {experiences.map((exp, idx) => (
+        <ExperienceItem
+          key={idx}
+          exp={exp}
+          isLast={idx === experiences.length - 1}
+        />
       ))}
     </div>
   );
@@ -131,12 +184,12 @@ export default function Experience() {
   return (
     <div className="container">
       <div className={styles.center__container}>
-        <IoBriefcaseOutline size="24"/>
+        <IoBriefcaseOutline size="24" />
         <Heading as="h3">
           Experience
         </Heading>
       </div>
-      <ExperienceTimelineContent/>
+      <ExperienceTimelineContent />
     </div>
   );
 }

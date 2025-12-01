@@ -34,7 +34,6 @@ const config = {
   projectName: 'mhasan502.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
@@ -52,6 +51,9 @@ const config = {
   {
       format: "detect",
       mermaid: true,
+      hooks: {
+        onBrokenMarkdownLinks: 'warn',
+      },
   },
 
   presets: [

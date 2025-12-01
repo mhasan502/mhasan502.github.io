@@ -17,10 +17,14 @@
 }
 
 .heroBanner {
-    min-height: 100vh;         /* Ensure it fills the viewport */
-    display: flex;             /* Center content vertically */
-    align-items: center;       /* Center vertically */
-    justify-content: center;   /* Center horizontally */
+    min-height: 100vh;
+    /* Ensure it fills the viewport */
+    display: flex;
+    /* Center content vertically */
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally */
     padding: 4rem 0 1rem;
     text-align: center;
     position: relative;
@@ -92,6 +96,7 @@
     .social__icon {
         font-size: 32px;
     }
+
     .social__link__item {
         padding: 0.25rem;
         margin: 0.25rem;
@@ -114,7 +119,8 @@
     border-radius: 4px;
     font-size: 0.875rem;
     position: absolute;
-    bottom: auto;            /* Position above the element */
+    bottom: auto;
+    /* Position above the element */
     left: 50%;
     top: 115%;
     margin-top: 6px;
@@ -129,12 +135,13 @@
 .icon__tooltip .icon__tooltip__text::after {
     content: "";
     position: absolute;
-    top: -10px;               /* At the bottom of the tooltip text */
+    top: -10px;
+    /* At the bottom of the tooltip text */
     left: 50%;
     transform: translateX(-50%);
     border-width: 6px;
     border-style: solid;
-    border-color: transparent transparent rgba(0,0,0,0.8) transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
 }
 
 /* Show the tooltip text when hovering */
@@ -201,6 +208,7 @@
     padding: 0 0 0 2rem;
     list-style-type: decimal;
 }
+
 .publication__img {
     width: 100%;
     margin: 1rem 0;
@@ -255,4 +263,78 @@
     margin: 0 0 2rem 1rem;
     padding: 0;
     flex: 1;
+}
+
+.timeline__header {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.timeline__header__content {
+    flex: 1;
+}
+
+.timeline__chevron {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.timeline__chevron__mobile {
+    margin-left: 0.5rem;
+    margin-top: 4px;
+    display: block;
+}
+
+.timeline__chevron__pc {
+    margin-left: 0.5rem;
+    display: none;
+    vertical-align: middle;
+}
+
+@media (min-width: 600px) {
+    .timeline__chevron__mobile {
+        display: none;
+    }
+
+    .timeline__chevron__pc {
+        display: inline-block;
+    }
+}
+
+.timeline__chevron__rotated {
+    transform: rotate(180deg);
+}
+
+.timeline__details__wrapper {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    max-height: 0;
+}
+
+.timeline__details__wrapper.open {
+    opacity: 1;
+}
+
+.timeline__bullet__list__items {
+    font-size: 0.875rem;
+    text-align: justify;
+    list-style-type: square;
+    line-height: 1.5rem;
+    display: list-item;
+    padding: 0;
+}
+
+/* Animation only for Experience component */
+.timeline__bullet__list__items__animated {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.timeline__bullet__list__items__animated.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
