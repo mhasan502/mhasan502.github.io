@@ -3,7 +3,7 @@ import styles from "@site/src/css/resume.module.css";
 import {useColorMode} from "@docusaurus/theme-common";
 import {IoSchoolOutline} from "react-icons/io5";
 
-const educationsData = [
+const educationData = [
   {
     degree: "Bachelor of Science in Computer Science and Engineering",
     period: "Spring 2018 - Summer 2022",
@@ -23,7 +23,7 @@ function EducationTimelineContent() {
 
   return (
     <div className={styles.timeline__parent}>
-      {educationsData.map((edu, idx) => (
+      {educationData.map((edu, idx) => (
         <div className={styles.timeline__item} key={idx}>
           <div className={styles.timeline__content}>
             <div className={styles.timeline__action}>
@@ -47,13 +47,13 @@ function EducationTimelineContent() {
   )
 }
 
-export default function Educations() {
+export default function Education() {
   return (
     <div className="container">
       <div className={styles.center__container}>
         <IoSchoolOutline size="24"/>
         <Heading as="h3">
-          Educations
+          Education
         </Heading>
       </div>
       <EducationTimelineContent/>

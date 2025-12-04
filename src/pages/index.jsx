@@ -3,7 +3,7 @@ import HeroSection from '../components/resume/HeroSection';
 import Experience from '../components/resume/Experience';
 import Publications from "../components/resume/Publications";
 import Skills from "../components/resume/Skills";
-import Educations from "../components/resume/Educations";
+import Education from "../components/resume/Education";
 
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
         <hr className="divider"/>
         <Skills/>
         <hr className="divider"/>
-        <Educations/>
+        <Education/>
       </main>
     </Layout>
   );
