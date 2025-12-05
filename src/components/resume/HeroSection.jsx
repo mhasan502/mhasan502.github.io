@@ -73,19 +73,21 @@ export default function HeroSection() {
             Md. Mehedi Hasan
           </Heading>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <p className={styles.hero__introduction}>
-            A dedicated and innovative AI Engineer with <span>{experience.roundedYears}+ years</span> of experience in
-            developing and deploying sophisticated AI solutions. Specializing in real-time vision inference pipelines,
-            with a focus on enhancing surveillance systems, video analysis, and real-time analytics. Additionally
-            experienced in building AI Agents and implementing Retrieval-Augmented Generation (RAG) architectures to
-            deliver context-aware, intelligent systems for various enterprise applications.
-          </p>
-          <p className={styles.hero__introduction}>
-            With a proven track record across diverse industries—including Ready-Made Garments (RMG), Retail,
-            Transportation and Construction Logistics —bringing a unique combination of technical expertise and industry
-            insight to each project. Eager to contribute expertise and innovation to a collaborative team. Feel free to
-            reach out by email or connect on LinkedIn.
-          </p>
+          <ul className={styles.hero__introduction__list}>
+            <li>
+              AI Engineer with <span className={styles.highlight}>{experience.roundedYears}+ years </span> of experience.
+            </li>
+            <li>
+              Currently building production grade <span className={styles.highlight}>AI Agents</span>
+            </li>
+            <li>
+              Previously built <span className={styles.highlight}>real-time vision inference pipelines</span> for surveillance systems, video analysis, and real-time analytics
+            </li>
+            <li>
+              Open Source Contribution: 2
+            </li>
+
+          </ul>
         </div>
         <div className={styles.hero__right}>
           <div className={styles.social__links__container}>
