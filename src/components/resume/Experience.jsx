@@ -8,21 +8,27 @@ const experiences = [
   {
     title: "AI Engineer",
     period: "January 2025 – Present",
-    companyLine: "AI Team, Projsite",
+    company: "Projsite",
+    address: "Stockholm, Sweden",
+    companylink: "https://projsite.com/en",
+    employmentType: "Full-time",
     adviserLine: "",
     details: [
       "Designed and deployed AI Agent integrated with NoSQL databases to enable real-time, context-aware user interactions.",
       "Analyzed consumer-level behavioral and interaction data to extract actionable insights and continuously improve AI-driven product functionalities.",
       "Built and maintained robust MLOps pipelines for automated model retraining, versioning, and continuous delivery to ensure high-availability and performance of deployed models.",
       "Collaborated with cross-functional remote teams to identify and execute data-driven optimization opportunities.",
-      "Developed scalable, production-grade machine learning infrastructure for seamless integration of AI features across Projsite’s core products and services.",
+      "Developed scalable, production-grade machine learning infrastructure for seamless integration of AI features across Projsite's core products and services.",
     ],
   },
   {
     title: "Artificial Intelligence Engineer",
     period: "May 2024 - January 2025",
-    companyLine: "Acote AI Innovation Hub,  Acote Group",
-    adviserLine: "Adviser: Dr. Mark Kim",
+    company: "Acote Group",
+    address: "Dhaka, Bangladesh",
+    companylink: "https://acotegroup.com/",
+    employmentType: "Full-time",
+    adviserLine: "",
     details: [
       "Developed an Object Detection model, successfully resolving significant accuracy challenges faced by the previous model in real-world scenarios.",
       "Engineered an automated ETL pipeline using Apache Airflow, streamlining data migration from model outputs to the software backend, significantly improving data accessibility and operational efficiency.",
@@ -32,7 +38,10 @@ const experiences = [
   {
     title: "Machine Learning Engineer - Data Engineering & Deployment",
     period: "May 2024 - May 2025",
-    companyLine: "Team Helios, AlterSense Limited",
+    company: "AlterSense Limited",
+    address: "Dhaka, Bangladesh",
+    companylink: "https://www.altersense.com/",
+    employmentType: "Contract",
     adviserLine: "Adviser: Dr. Nabeel Mohammed",
     details: [
       "Architected a real-time ML pipeline to ingest high-throughput camera streams (1.1 GB/s) and stream data into Apache Kafka for scalable processing.",
@@ -46,7 +55,10 @@ const experiences = [
   {
     title: "Junior Machine Learning Engineer",
     period: "January 2023 – April 2024",
-    companyLine: "Team Helios, AlterSense Limited",
+    company: "AlterSense Limited",
+    address: "Dhaka, Bangladesh",
+    companylink: "https://www.altersense.com/",
+    employmentType: "Full-time",
     adviserLine: "Adviser: Dr. Nabeel Mohammed",
     details: [
       "Optimized multiple surveillance vision models, reducing GPU memory overhead by 10× through performance profiling with NVIDIA Nsight Compute.",
@@ -60,7 +72,10 @@ const experiences = [
   {
     title: "Software Development Associate",
     period: "June 2021 - December 2021",
-    companyLine: "Department of Electrical and Computer Engineering,  North South University",
+    company: "ECE Dept, North South University",
+    address: "Dhaka, Bangladesh",
+    companylink: "https://ece.northsouth.edu/",
+    employmentType: "Contract",
     adviserLine: "Supervised by:  Dr. Mohammad Rashedur Rahman,  Mirza Mohammad Lutfe Elahi, and  Silvia Ahmed",
     details: [
       "Delivered a high-performance website for the ICCIT 2021 Conference, exceeding 30,000+ traffic, and received positive feedback from attendees.",
@@ -72,7 +87,10 @@ const experiences = [
   {
     title: "Undergraduate Teaching Assistant",
     period: "June 2022 - September 2022",
-    companyLine: "Department of Electrical and Computer Engineering,  North South University",
+    company: "ECE Dept, North South University",
+    address: "Dhaka, Bangladesh",
+    companylink: "https://ece.northsouth.edu/",
+    employmentType: "Contract",
     adviserLine: "Worked and collaborated with  Dr. Nabeel Mohammed,  Dr. Sarker Tanveer Ahmed Rumee, and  Sarnali Basak",
     details: [
       "Conducted tutorial sessions for students needing extra help outside of class hours.",
@@ -128,7 +146,10 @@ function ExperienceItem({ exp, isLast }) {
               </span>
             </div>
 
-            <p className={styles.timeline__organization}>{exp.companyLine}</p>
+            <p className={styles.timeline__organization}>
+              {exp.employmentType} · <a href={exp.companylink} target="_blank" rel="noopener noreferrer">{exp.company}</a>
+            </p>
+            <p className={styles.timeline__organization__subline}>{exp.address}</p>
             {exp.adviserLine && (
               <p className={styles.timeline__organization__subline}>
                 {exp.adviserLine}

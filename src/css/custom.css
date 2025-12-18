@@ -63,7 +63,7 @@
 }
 
 .divider {
-  width: 90%;              /* 90% width */
+  width: 80%;              /* 80% width */
   margin: 16px auto;       /* vertically 16px, horizontally auto-center */
   border: none;
   border-top: 1px solid #e0e0e0; /* theme.divider equivalent */

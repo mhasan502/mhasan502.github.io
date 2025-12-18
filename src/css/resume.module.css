@@ -102,7 +102,7 @@
 .hero__introduction__list li {
     position: relative;
     padding-left: 2rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
     line-height: 1.7;
     text-align: left;
     font-size: 1.05rem;
@@ -156,7 +156,6 @@
 .social__links__container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     align-items: flex-start;
 }
 
@@ -178,11 +177,10 @@
     gap: 1rem;
     color: white;
     text-decoration: none;
-    padding: 0.25rem 0.8rem;
-    border-radius: 0.5rem;
+    padding: 0.5rem 0.8rem;
     transition: all 0.3s ease;
     background-color: rgba(255, 255, 255, 0.05);
-    min-width: 180px;
+    min-width: 250px;
 }
 
 @media screen and (max-width: 996px) {

@@ -39,20 +39,15 @@ const socialLinks = [
     label: "Stack Overflow",
     hover_text: "Visit Stack Overflow",
   },
-  // {
-  //   icon: FaGlobe,
-  //   label: "Open-source: 2 repo",
-  //   hover_text: "Open Source Contributions",
-  // }
 ];
 
 
 export default function HeroSection() {
   const { siteConfig } = useDocusaurusContext();
-  const [experience, setExperience] = useState({ years: 2 });
+  const [experience, setExperience] = useState({ years: 3 });
 
   useEffect(() => {
-    const startDate = new Date(2023, 0, 1);
+    const startDate = new Date(2022, 4, 1);
     const currentDate = new Date();
 
     const totalMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + (currentDate.getMonth() - startDate.getMonth());
@@ -78,15 +73,17 @@ export default function HeroSection() {
               AI Engineer with <span className={styles.highlight}>{experience.roundedYears}+ years </span> of experience.
             </li>
             <li>
-              Currently building production grade <span className={styles.highlight}>AI Agents</span>
+              Real-time vision systems expertise
             </li>
             <li>
-              Previously built <span className={styles.highlight}>real-time vision inference pipelines</span> for surveillance systems, video analysis, and real-time analytics
+              AI Agents & RAG implementations
             </li>
             <li>
-              Open Source Contribution: 2
+              Open Source Contribution: <span className={styles.highlight}>2</span>
             </li>
-
+            <li>
+              Education: B.Sc. in CSE, North South University
+            </li>
           </ul>
         </div>
         <div className={styles.hero__right}>
