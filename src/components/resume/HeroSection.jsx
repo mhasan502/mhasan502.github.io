@@ -2,42 +2,39 @@ import Heading from "@theme/Heading";
 import styles from "@site/src/css/resume.module.css";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import { useEffect, useState } from "react";
-import clsx from "clsx";
-import { FaGithub, FaLinkedin, FaStackOverflow, FaGlobe } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaStackOverflow } from "react-icons/fa";
+import { LuSparkles } from "react-icons/lu";
+
 import { SiGooglescholar } from "react-icons/si";
 import { GoMail } from "react-icons/go";
+import { PiArrowElbowDownRight } from "react-icons/pi";
 import mehedi_webp from "@site/static/img/mehedi.webp";
 
 const socialLinks = [
   {
     href: "mailto:mhasan502@gmail.com",
     icon: GoMail,
-    label: "mhasan502@gmail.com",
-    hover_text: "Send an email",
+    hover_text: "mhasan502@gmail.com",
   },
   {
     href: "https://github.com/mhasan502",
     icon: FaGithub,
-    label: "mhasan502",
     hover_text: "GitHub",
   },
   {
     href: "https://linkedin.com/in/Mhasan502",
     icon: FaLinkedin,
-    label: "mhasan502",
     hover_text: "LinkedIn",
   },
   {
     href: "https://scholar.google.com/citations?user=1E7N-BoAAAAJ",
     icon: SiGooglescholar,
-    label: "Citations: 39",
     hover_text: "Google Scholar",
   },
   {
     href: "https://stackoverflow.com/users/14150890/mhasan502",
     icon: FaStackOverflow,
-    label: "Stack Overflow",
-    hover_text: "Visit Stack Overflow",
+    hover_text: "Stack Overflow",
   },
 ];
 
@@ -60,41 +57,68 @@ export default function HeroSection() {
 
 
   return (
-    <header className={clsx("hero hero--primary", styles.heroBanner)}>
-      <div className={clsx("container", styles.hero__container)}>
+    <header className={styles.heroBanner}>
+      <div className={styles.hero__container}>
         <div className={styles.hero__left}>
           <img className={styles.hero__image} src={mehedi_webp} alt="Picture of Mhasan502" />
           <Heading as="h1" className={styles.hero__title}>
-            Md. Mehedi Hasan
+            <span className={styles.hero__title__base}>Md.</span>{" "}
+            <span className={styles.hero__title__highlight}>Mehedi Hasan</span>
           </Heading>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <div className={styles.hero__badge}>
+            <LuSparkles className={styles.hero__badge__icon} />
+            <span>{siteConfig.tagline}</span>
+          </div>
           <ul className={styles.hero__introduction__list}>
             <li>
-              AI Engineer with <span className={styles.highlight}>{experience.roundedYears}+ years </span> of experience.
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <span className={styles.hero__bullet__text}>
+                AI/ML Engineer with <span className={styles.yellow}>{experience.roundedYears}+ years </span> of experience.
+              </span>
             </li>
             <li>
-              Real-time vision systems expertise
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <span className={styles.hero__bullet__text}>
+                Specializing in computer vision, inference systems, MLOps, and LLM applications.
+              </span>
             </li>
             <li>
-              AI Agents & RAG implementations
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <span className={styles.hero__bullet__text}>
+                Shipped AI agents, real-time vision model pipelines, optimized GPU inference.
+              </span>
             </li>
             <li>
-              Open Source Contribution: <span className={styles.highlight}>2</span>
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <span className={styles.hero__bullet__text}>
+                Open Source Contribution: <span className={styles.yellow}>2</span>
+              </span>
             </li>
             <li>
-              Education: B.Sc. in CSE, North South University
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <span className={styles.hero__bullet__text}>
+                Google Scholar Citations: <span className={styles.yellow}>48</span>
+              </span>
+            </li>
+            <li>
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <span className={styles.hero__bullet__text}>Bachelor in CSE, North South University</span>
             </li>
           </ul>
-        </div>
-        <div className={styles.hero__right}>
           <div className={styles.social__links__container}>
-            {socialLinks.map(({ href, icon: Icon, label, hover_text }, idx) => (
+            {socialLinks.map(({ href, icon: Icon, hover_text }, idx) => (
               <div key={idx} className={styles.social__link__wrapper}>
-                <a className={styles.social__link__item} href={href} target="_blank" rel="noopener noreferrer">
+                <a
+                  className={styles.social__link__item}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={hover_text}
+                  aria-label={hover_text}
+                  data-tooltip={hover_text}
+                >
                   <Icon className={styles.social__icon} />
-                  <span className={styles.social__link__label}>{label}</span>
                 </a>
-                {hover_text && <span className={styles.social__link__tooltip}>{hover_text}</span>}
               </div>
             ))}
           </div>

@@ -1,216 +1,127 @@
 import Heading from "@theme/Heading";
 import styles from "@site/src/css/resume.module.css";
-import { useColorMode } from "@docusaurus/theme-common";
-import React, { useState, useRef, useEffect } from "react";
-import { IoBriefcaseOutline, IoChevronDown } from "react-icons/io5";
+import {IoBriefcaseOutline} from "react-icons/io5";
 
-const experiences = [
-  {
-    title: "AI Engineer",
-    period: "January 2025 – Present",
-    company: "Projsite",
-    address: "Stockholm, Sweden",
-    companylink: "https://projsite.com/en",
-    employmentType: "Full-time",
-    adviserLine: "",
-    details: [
-      "Designed and deployed AI Agent integrated with NoSQL databases to enable real-time, context-aware user interactions.",
-      "Analyzed consumer-level behavioral and interaction data to extract actionable insights and continuously improve AI-driven product functionalities.",
-      "Built and maintained robust MLOps pipelines for automated model retraining, versioning, and continuous delivery to ensure high-availability and performance of deployed models.",
-      "Collaborated with cross-functional remote teams to identify and execute data-driven optimization opportunities.",
-      "Developed scalable, production-grade machine learning infrastructure for seamless integration of AI features across Projsite's core products and services.",
-    ],
-  },
-  {
-    title: "Artificial Intelligence Engineer",
-    period: "May 2024 - January 2025",
-    company: "Acote Group",
-    address: "Dhaka, Bangladesh",
-    companylink: "https://acotegroup.com/",
-    employmentType: "Full-time",
-    adviserLine: "",
-    details: [
-      "Developed an Object Detection model, successfully resolving significant accuracy challenges faced by the previous model in real-world scenarios.",
-      "Engineered an automated ETL pipeline using Apache Airflow, streamlining data migration from model outputs to the software backend, significantly improving data accessibility and operational efficiency.",
-      "Developed a Temporal Tracking-based automated data collection platform, leveraging CCTV footage to reduce manual effort and optimize data collection.",
-    ],
-  },
-  {
-    title: "Machine Learning Engineer - Data Engineering & Deployment",
-    period: "May 2024 - May 2025",
-    company: "AlterSense Limited",
-    address: "Dhaka, Bangladesh",
-    companylink: "https://www.altersense.com/",
-    employmentType: "Contract",
-    adviserLine: "Adviser: Dr. Nabeel Mohammed",
-    details: [
-      "Architected a real-time ML pipeline to ingest high-throughput camera streams (1.1 GB/s) and stream data into Apache Kafka for scalable processing.",
-      "Developed core data ingestion modules in C++, utilizing advanced concurrency techniques (mutexes, condition variables, thread pools) for thread-safe, high-performance streaming.",
-      "Designed and deployed a data warehouse solution to store both raw and processed data, facilitating real-time analytics and scheduled batch inference.",
-      "Implemented scheduled inference workflows that retrieved data from the warehouse for deeper analysis, ensuring temporal consistency and model robustness.",
-      "Built a horizontally and vertically scalable distributed system, ensuring high availability, fault tolerance, and consistent performance under sustained load.",
-      "Prioritized architectural principles of scalability, maintainability, and reliability to support ongoing high-load operations and ensure seamless deployments."
-    ],
-  },
-  {
-    title: "Junior Machine Learning Engineer",
-    period: "January 2023 – April 2024",
-    company: "AlterSense Limited",
-    address: "Dhaka, Bangladesh",
-    companylink: "https://www.altersense.com/",
-    employmentType: "Full-time",
-    adviserLine: "Adviser: Dr. Nabeel Mohammed",
-    details: [
-      "Optimized multiple surveillance vision models, reducing GPU memory overhead by 10× through performance profiling with NVIDIA Nsight Compute.",
-      "Delivered a robust object detection model in noisy environments, achieving an F1 Score of 0.722 by effectively addressing data imbalance challenges.",
-      "Employed TensorRT framework to decrease GPU VRAM usage by 30 % and inference speed by 1.7×, enabling deployment on low-spec hardware.",
-      "Developed and deployed an end-to-end real-time vision inference pipeline for local servers, utilizing distributed computing platforms for enhanced performance.",
-      "Engineered algorithms to automate a couple of manual software workflows on deployed machine learning models, boosting performance and scalability by 25 %.",
-      "Provided mentorship and strategic guidance to a junior team member, leading to the successful development of a new feature for an existing product.",
-    ],
-  },
-  {
-    title: "Software Development Associate",
-    period: "June 2021 - December 2021",
-    company: "ECE Dept, North South University",
-    address: "Dhaka, Bangladesh",
-    companylink: "https://ece.northsouth.edu/",
-    employmentType: "Contract",
-    adviserLine: "Supervised by:  Dr. Mohammad Rashedur Rahman,  Mirza Mohammad Lutfe Elahi, and  Silvia Ahmed",
-    details: [
-      "Delivered a high-performance website for the ICCIT 2021 Conference, exceeding 30,000+ traffic, and received positive feedback from attendees.",
-      "Conducted a livelihood vulnerability assessment solution for 10,000+ people for post-disaster environment, enabling targeted relief distribution.",
-      "Migrated a legacy PHP project to Django, driving a 20% performance gain and unlocking future scalability.",
-      "Developed and deployed an Android app for precise data collection, reducing errors by 10% and optimizing field operations.",
-    ],
-  },
-  {
-    title: "Undergraduate Teaching Assistant",
-    period: "June 2022 - September 2022",
-    company: "ECE Dept, North South University",
-    address: "Dhaka, Bangladesh",
-    companylink: "https://ece.northsouth.edu/",
-    employmentType: "Contract",
-    adviserLine: "Worked and collaborated with  Dr. Nabeel Mohammed,  Dr. Sarker Tanveer Ahmed Rumee, and  Sarnali Basak",
-    details: [
-      "Conducted tutorial sessions for students needing extra help outside of class hours.",
-      "Graded home-works and assignments.",
-      "Stayed informed about test dates, times, and other course-related deadlines.",
-      "Maintained 04 hours per week per section divided among the assisting faculty members for student consultation.",
-      "Assisted faculty members in their course-related work except for grading quiz/exam papers.",
-    ],
-  },
-];
+const experiences = [{
+  title: "AI Engineer",
+  period: "January 2025 – Present",
+  company: "Projsite",
+  address: "Stockholm, Sweden",
+  companylink: "https://projsite.com/en",
+  employmentType: "Full-time",
+  adviserLine: "",
+  details: [
+    "Designed and deployed AI Agent integrated with NoSQL databases to enable real-time, context-aware user interactions.",
+    "Analyzed consumer-level behavioral and interaction data to extract actionable insights and continuously improve AI-driven product functionalities.",
+    "Built and maintained robust MLOps pipelines for automated model retraining, versioning, and continuous delivery to ensure high-availability and performance of deployed models.",
+    "Collaborated with cross-functional remote teams to identify and execute data-driven optimization opportunities.",
+    "Developed scalable, production-grade machine learning infrastructure for seamless integration of AI features across Projsite's core products and services.",
+  ],
+}, {
+  title: "Machine Learning Engineer",
+  period: "January 2023 – December 2024",
+  company: "AlterSense Limited",
+  address: "Dhaka, Bangladesh",
+  companylink: "https://www.altersense.com/",
+  employmentType: "Full-time",
+  adviserLine: "Adviser: Dr. Nabeel Mohammed",
+  details: [
+    "Architected and deployed a real-time ML pipeline processing ~1.1 GB/s of camera streams, integrating Apache Kafka for scalable distributed inference.",
+    "Delivered a robust object detection model in noisy environments, achieving an F1 score of 0.722 by addressing data imbalance challenges.",
+    "Optimized inference pipelines using TensorRT and NVIDIA Nsight, reducing GPU memory usage by 30% and increasing throughput by 1.7x.",
+    "Developed high-performance C++ ingestion modules using concurrency primitives (thread pools, mutexes, condition variables) for efficient streaming.",
+    "Built end-to-end data infrastructure (Airflow + data warehouse) to support automated ETL, real-time analytics, and scheduled batch inference.",
+    "Designed and scaled a CCTV-based data collection platform, reducing manual effort and improving data acquisition efficiency.",
+    "Developed a Temporal Tracking-based automated data collection platform, leveraging CCTV footage to reduce manual effort and optimize data collection.",
+  ],
+}, {
+  title: "Software Development Associate",
+  academic: true,
+  period: "June 2021 - December 2021",
+  company: "ECE Dept, North South University",
+  address: "Dhaka, Bangladesh",
+  companylink: "https://ece.northsouth.edu/",
+  employmentType: "Contract",
+  adviserLine: "Supervised by:  Dr. Mohammad Rashedur Rahman,  Mirza Mohammad Lutfe Elahi, and  Silvia Ahmed",
+  details: ["Delivered a high-performance website for the ICCIT 2021 Conference, exceeding 30,000+ traffic, and received positive feedback from attendees.", "Conducted a livelihood vulnerability assessment solution for 10,000+ people for post-disaster environment, enabling targeted relief distribution.", "Migrated a legacy PHP project to Django, driving a 20% performance gain and unlocking future scalability.", "Developed and deployed an Android app for precise data collection, reducing errors by 10% and optimizing field operations.",],
+}, {
+  title: "Undergraduate Teaching Assistant",
+  academic: true,
+  period: "June 2022 - September 2022",
+  company: "ECE Dept, North South University",
+  address: "Dhaka, Bangladesh",
+  companylink: "https://ece.northsouth.edu/",
+  employmentType: "Contract",
+  adviserLine: "Worked and collaborated with  Dr. Nabeel Mohammed,  Dr. Sarker Tanveer Ahmed Rumee, and  Sarnali Basak",
+  details: ["Conducted tutorial sessions for students needing extra help outside of class hours.", "Graded home-works and assignments.", "Stayed informed about test dates, times, and other course-related deadlines.", "Maintained 04 hours per week per section divided among the assisting faculty members for student consultation.", "Assisted faculty members in their course-related work except for grading quiz/exam papers.",],
+},];
 
-function ExperienceItem({ exp, isLast }) {
-  const { colorMode } = useColorMode();
-  const dateBackgroundColor = colorMode === "dark" ? "#616161" : "#F1F3F5";
-  const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef(null);
-  const [height, setHeight] = useState(0);
+function ExperienceItem({exp, isLast}) {
+  return (<div className={styles.timeline__item}>
+    <div className={styles.timeline__separator}>
+      <div className={styles.timeline__dot}/>
+      {!isLast && <div className={styles.timeline__connector}/>}
+    </div>
 
-  useEffect(() => {
-    if (isOpen) {
-      setHeight(contentRef.current.scrollHeight);
-    } else {
-      setHeight(0);
-    }
-  }, [isOpen]);
-
-  const toggleOpen = () => setIsOpen(!isOpen);
-
-  return (
-    <div className={styles.timeline__item}>
-      <div className={styles.timeline__separator}>
-        <div className={styles.timeline__dot} />
-        {!isLast && <div className={styles.timeline__connector} />}
-      </div>
-
-      <div className={styles.timeline__content}>
-        <div className={styles.timeline__header} onClick={toggleOpen}>
-          <div className={styles.timeline__header__content}>
-            <div className={styles.timeline__action}>
-              <p className={styles.timeline__action__title}>
-                {exp.title}
-                <IoChevronDown
-                  className={`${styles.timeline__chevron} ${styles.timeline__chevron__pc} ${isOpen ? styles.timeline__chevron__rotated : ""
-                    }`}
-                  size={20}
-                />
-              </p>
-              <span
-                className={styles.timeline__action__period}
-                style={{ backgroundColor: dateBackgroundColor }}
-              >
+    <div className={styles.timeline__content}>
+      <div className={styles.timeline__header}>
+        <div className={styles.timeline__header__content}>
+          <div className={styles.timeline__action}>
+            <p className={styles.timeline__action__title}>
+              {exp.title}
+            </p>
+            <span
+              className={styles.timeline__action__period}
+            >
                 {exp.period}
               </span>
-            </div>
-
-            <p className={styles.timeline__organization}>
-              {exp.employmentType} · <a href={exp.companylink} target="_blank" rel="noopener noreferrer">{exp.company}</a>
-            </p>
-            <p className={styles.timeline__organization__subline}>{exp.address}</p>
-            {exp.adviserLine && (
-              <p className={styles.timeline__organization__subline}>
-                {exp.adviserLine}
-              </p>
-            )}
           </div>
-          <IoChevronDown
-            className={`${styles.timeline__chevron} ${styles.timeline__chevron__mobile} ${isOpen ? styles.timeline__chevron__rotated : ""
-              }`}
-            size={20}
-          />
-        </div>
 
-        <div
-          className={`${styles.timeline__details__wrapper} ${isOpen ? styles.open : ""
-            }`}
-          style={{ maxHeight: `${height}px` }}
-          ref={contentRef}
-        >
-          <ul className={styles.timeline__bullet__list}>
-            {exp.details.map((point, i) => (
-              <li
-                key={i}
-                className={`${styles.timeline__bullet__list__items} ${styles.timeline__bullet__list__items__animated} ${isOpen ? styles.visible : ""
-                  }`}
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                {point}
-              </li>
-            ))}
-          </ul>
+          <p className={styles.timeline__organization}>
+            {exp.employmentType} · <a href={exp.companylink} target="_blank" rel="noopener noreferrer">{exp.company}</a>
+          </p>
+          <p className={styles.timeline__organization__subline}>{exp.address}</p>
+          {exp.adviserLine && (<p className={styles.timeline__organization__subline}> {exp.adviserLine} </p>)}
         </div>
       </div>
+
+      <div
+        className={`${styles.timeline__details__wrapper} ${styles.open}`}
+        style={{maxHeight: "1000px"}}
+      >
+        <ul className={styles.timeline__bullet__list}>
+          {exp.details.map((point, i) => (<li
+            key={i}
+            className={`${styles.timeline__bullet__list__items} ${styles.timeline__bullet__list__items__animated} ${styles.visible}`}
+          >
+            {point}
+          </li>))}
+        </ul>
+      </div>
     </div>
-  );
+  </div>);
 }
 
 function ExperienceTimelineContent() {
-  return (
-    <div className={styles.timeline__parent}>
-      {experiences.map((exp, idx) => (
-        <ExperienceItem
-          key={idx}
-          exp={exp}
-          isLast={idx === experiences.length - 1}
-        />
-      ))}
-    </div>
-  );
+  const visibleExperiences = experiences.filter((exp) => !exp.academic);
+
+  return (<div className={styles.timeline__parent}>
+    {visibleExperiences.map((exp, idx) => (<ExperienceItem
+      key={idx}
+      exp={exp}
+      isLast={idx === visibleExperiences.length - 1}
+    />))}
+  </div>);
 }
 
 export default function Experience() {
-  return (
-    <div className="container">
-      <div className={styles.center__container}>
-        <IoBriefcaseOutline size="24" />
-        <Heading as="h3">
-          Experience
-        </Heading>
-      </div>
-      <ExperienceTimelineContent />
+  return (<div id="experience" className="container">
+    <div className={styles.center__container}>
+      <IoBriefcaseOutline size="28"/>
+      <Heading as="h2">
+        Experience
+      </Heading>
     </div>
-  );
+    <ExperienceTimelineContent/>
+  </div>);
 }

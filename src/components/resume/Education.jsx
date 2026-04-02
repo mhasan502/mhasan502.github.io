@@ -1,6 +1,5 @@
 import Heading from "@theme/Heading";
 import styles from "@site/src/css/resume.module.css";
-import {useColorMode} from "@docusaurus/theme-common";
 import {IoSchoolOutline} from "react-icons/io5";
 
 const educationData = [
@@ -18,9 +17,6 @@ const educationData = [
 ]
 
 function EducationTimelineContent() {
-  const {colorMode} = useColorMode();
-  const dateBackgroundColor = colorMode === "dark" ? "#616161" : "#F1F3F5";
-
   return (
     <div className={styles.timeline__parent}>
       {educationData.map((edu, idx) => (
@@ -28,7 +24,7 @@ function EducationTimelineContent() {
           <div className={styles.timeline__content}>
             <div className={styles.timeline__action}>
               <Heading as="h3" className={styles.timeline__action__title}>{edu.degree}</Heading>
-              <span className={styles.timeline__action__period} style={{backgroundColor: dateBackgroundColor}}>
+              <span className={styles.timeline__action__period}>
                 {edu.period}
               </span>
             </div>
@@ -49,12 +45,10 @@ function EducationTimelineContent() {
 
 export default function Education() {
   return (
-    <div className="container">
+    <div id="education" className="container">
       <div className={styles.center__container}>
         <IoSchoolOutline size="24"/>
-        <Heading as="h3">
-          Education
-        </Heading>
+        <Heading as="h2"> Education </Heading>
       </div>
       <EducationTimelineContent/>
     </div>

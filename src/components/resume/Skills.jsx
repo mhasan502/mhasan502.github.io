@@ -13,10 +13,10 @@ const skillData = [
 
 export default function Skills() {
   return (
-    <div className="container">
+    <div id="skills" className="container">
       <div className={styles.center__container}>
         <VscTools size="24"/>
-        <Heading as="h3"> Skills </Heading>
+        <Heading as="h2"> Skills </Heading>
       </div>
       <ul>
         {skillData.map((item, index) => (

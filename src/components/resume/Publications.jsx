@@ -29,10 +29,10 @@ const publicationsData = [
 
 export default function Publications() {
   return (
-    <div className="container">
+    <div id="publications" className="container">
       <div className={styles.center__container}>
         <RiDraftLine size="24"/>
-        <Heading as="h3"> Publications </Heading>
+        <Heading as="h2"> Publications </Heading>
       </div>
       <ul className={styles.publication__main__list} style={{listStyleType: "decimal"}}>
         {publicationsData.map((pub, idx) => (

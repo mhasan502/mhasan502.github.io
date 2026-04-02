@@ -3,12 +3,12 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-@import url('font.css');
-@import url('override.css');
+@import url("font.css");
+@import url("override.css");
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #1976D2;
+  --ifm-color-primary: #1976d2;
   --ifm-color-primary-dark: #2497f3;
   --ifm-color-primary-darker: #1690f3;
   --ifm-color-primary-darkest: #0d88ec;
@@ -17,12 +17,12 @@
   --ifm-color-primary-lightest: #9bcffa;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: 'Rubik', sans-serif;
+  --ifm-font-family-base: "Rubik", sans-serif;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #1976D2;
+  --ifm-color-primary: #1976d2;
   --ifm-color-primary-dark: #2497f3;
   --ifm-color-primary-darker: #1690f3;
   --ifm-color-primary-darkest: #0d88ec;
@@ -32,19 +32,14 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* Navbar */
 .navbar {
   height: 4rem;
-  padding: 0 4rem 0;
-}
-
-@media screen and (max-width: 996px) {
-  .navbar {
-    padding: 0.5rem 1rem;
-  }
+  padding: 0 4rem;
 }
 
 .navbar__title {
-  font-family: 'Chakra Petch', sans-serif;
+  font-family: "Chakra Petch", sans-serif;
   font-weight: 700;
   margin-left: 20px;
   margin-right: 20px;
@@ -56,19 +51,19 @@
   margin-right: 5px;
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .navbar__title {
     font-size: 1.75rem;
   }
 }
 
-.divider {
-  width: 80%;              /* 80% width */
-  margin: 16px auto;       /* vertically 16px, horizontally auto-center */
-  border: none;
-  border-top: 1px solid #e0e0e0; /* theme.divider equivalent */
+@media (max-width: 996px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
 }
 
+/* Global layout spacing */
 .container {
-  margin: 1rem auto 3rem;
+  margin: 4rem auto;
 }

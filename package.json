@@ -27,7 +27,8 @@
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
     "rehype-katex": "7",
-    "remark-math": "6"
+    "remark-math": "6",
+    "yarn": "^1.22.22"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.9.2",
@@ -46,6 +47,6 @@
     ]
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=24.0"
   }
 }

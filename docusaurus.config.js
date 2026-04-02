@@ -13,7 +13,7 @@ import rehypeKatex from 'rehype-katex';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Mhasan502',
-  tagline: '',
+  tagline: 'AI/ML Engineer',
   favicon: 'img/favicon.webp',
 
 
