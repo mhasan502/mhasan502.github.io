@@ -115,13 +115,13 @@ const config = {
       image: 'img/social-card.webp',
       navbar: {
         title: 'MEHEDI HASAN',
-        logo: {
-          alt: 'mhasan502',
-          src: 'img/mehedi.webp',
-          style: {
-            borderRadius: '5px',
-          }
-        },
+        // logo: {
+        //   alt: 'mhasan502',
+        //   src: 'img/mehedi.webp',
+        //   style: {
+        //     borderRadius: '5px',
+        //   }
+        // },
         items: [
           // {
           //   type: 'docSidebar',

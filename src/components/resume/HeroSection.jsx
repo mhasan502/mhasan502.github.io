@@ -61,10 +61,10 @@ export default function HeroSection() {
       <div className={styles.hero__container}>
         <div className={styles.hero__left}>
           <img className={styles.hero__image} src={mehedi_webp} alt="Picture of Mhasan502" />
-          <Heading as="h1" className={styles.hero__title}>
+          <div className={styles.hero__title}>
             <span className={styles.hero__title__base}>Md.</span>{" "}
             <span className={styles.hero__title__highlight}>Mehedi Hasan</span>
-          </Heading>
+          </div>
           <div className={styles.hero__badge}>
             <LuSparkles className={styles.hero__badge__icon} />
             <span>{siteConfig.tagline}</span>
