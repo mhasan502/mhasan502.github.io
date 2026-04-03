@@ -1,4 +1,5 @@
 name: Update Google Scholar Citations
+run-name: Scholar citations update
 
 on:
   schedule:
@@ -11,6 +12,8 @@ permissions:
 jobs:
   update-citations:
     runs-on: ubuntu-latest
+    env:
+      SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
 
     steps:
       - name: Checkout
@@ -22,13 +25,13 @@ jobs:
           node-version: 25
 
       - name: Update citation metric
-        if: ${{ secrets.SERPAPI_API_KEY != '' }}
+        if: ${{ env.SERPAPI_API_KEY != '' }}
         env:
-          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          SERPAPI_API_KEY: ${{ env.SERPAPI_API_KEY }}
         run: node scripts/update-scholar-citations.mjs
 
       - name: Commit and push if changed
-        if: ${{ secrets.SERPAPI_API_KEY != '' }}
+        if: ${{ env.SERPAPI_API_KEY != '' }}
         run: |
           if git diff --quiet -- src/components/resume/data/scholarMetrics.json; then
             echo "No metric updates."
@@ -45,5 +48,5 @@ jobs:
           git push
 
       - name: Skip notice
-        if: ${{ secrets.SERPAPI_API_KEY == '' }}
+        if: ${{ env.SERPAPI_API_KEY == '' }}
         run: echo "SERPAPI_API_KEY is not configured. Skipping citation update."
