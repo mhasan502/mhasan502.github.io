@@ -9,11 +9,11 @@ export const experiencesData = [
     employmentType: "Full-time",
     adviserLine: "",
     details: [
-      "Designed and deployed AI Agent integrated with NoSQL databases to enable real-time, context-aware user interactions.",
-      "Analyzed consumer-level behavioral and interaction data to extract actionable insights and continuously improve AI-driven product functionalities.",
-      "Built and maintained robust MLOps pipelines for automated model retraining, versioning, and continuous delivery to ensure high-availability and performance of deployed models.",
-      "Collaborated with cross-functional remote teams to identify and execute data-driven optimization opportunities.",
-      "Developed scalable, production-grade machine learning infrastructure for seamless integration of AI features across Projsite's core products and services.",
+      "Led development of Charlie, an AI support agent enabling real-time, context-aware interactions integrated with internal data and application state.",
+      "Designed and implemented agent pipelines (retrieval, tool use, response generation) to improve answer accuracy and reduce manual support dependency.",
+      "Contributed to the architecture and implementation of next-generation Projsite platform, spanning backend, frontend, and AI systems.",
+      "Contributed to Magic Reader, enabling automated conversion of supplier order confirmations into actionable delivery plans using AI and OCR.",
+      "Built workflow orchestration using Apache Airflow, automating ingestion and transformation of external booking data into platform-ready formats.",
     ],
   },
   {
