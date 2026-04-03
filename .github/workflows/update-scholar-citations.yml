@@ -1,0 +1,49 @@
+name: Update Google Scholar Citations
+
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-citations:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 25
+
+      - name: Update citation metric
+        if: ${{ secrets.SERPAPI_API_KEY != '' }}
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+        run: node scripts/update-scholar-citations.mjs
+
+      - name: Commit and push if changed
+        if: ${{ secrets.SERPAPI_API_KEY != '' }}
+        run: |
+          if git diff --quiet -- src/components/resume/data/scholarMetrics.json; then
+            echo "No metric updates."
+            exit 0
+          fi
+
+          OLD_CITATIONS=$(git show HEAD:src/components/resume/data/scholarMetrics.json 2>/dev/null | node -e "let s='';process.stdin.on('data',d=>s+=d);process.stdin.on('end',()=>{try{const j=JSON.parse(s);process.stdout.write(String(j.citations));}catch{process.stdout.write('unknown');}})")
+          NEW_CITATIONS=$(node -e "const fs=require('node:fs');try{const j=JSON.parse(fs.readFileSync('src/components/resume/data/scholarMetrics.json','utf8'));process.stdout.write(String(j.citations));}catch{process.stdout.write('unknown');}")
+
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add src/components/resume/data/scholarMetrics.json
+          git commit -m "chore: update Google Scholar citations (${OLD_CITATIONS} -> ${NEW_CITATIONS})"
+          git push
+
+      - name: Skip notice
+        if: ${{ secrets.SERPAPI_API_KEY == '' }}
+        run: echo "SERPAPI_API_KEY is not configured. Skipping citation update."

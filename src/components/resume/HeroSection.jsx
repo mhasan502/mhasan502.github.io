@@ -7,6 +7,7 @@ import { socialLinks } from "./data/socialLinks";
 import { getExperienceYears } from "./utils/getExperienceYears";
 import { HiSparkles, HiOutlineSparkles } from "react-icons/hi2";
 import { summarizedAIData } from "./data/summarizedAIData";
+import scholarMetrics from "./data/scholarMetrics.json";
 
 
 export default function HeroSection() {
@@ -18,6 +19,7 @@ export default function HeroSection() {
   const [typedBubbleText, setTypedBubbleText] = useState("");
   const badgeWrapperRef = useRef(null);
   const recentBubbleIdsRef = useRef([]);
+  const googleScholarCitations = Number.isFinite(scholarMetrics?.citations) ? scholarMetrics.citations : 48;
 
   useEffect(() => {
     function handlePointerDown(event) {
@@ -149,7 +151,7 @@ export default function HeroSection() {
             <li>
               <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
               <span className={styles.hero__bullet__text}>
-                Google Scholar Citations: <span className={styles.yellow}>48</span>
+                Google Scholar Citations: <span className={styles.yellow}>{googleScholarCitations}</span>
               </span>
             </li>
             <li>
