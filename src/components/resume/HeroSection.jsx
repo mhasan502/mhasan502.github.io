@@ -1,59 +1,15 @@
-import Heading from "@theme/Heading";
 import styles from "@site/src/css/resume.module.css";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { useEffect, useState } from "react";
-import { FaGithub, FaLinkedin, FaStackOverflow } from "react-icons/fa";
 import { LuSparkles } from "react-icons/lu";
-
-import { SiGooglescholar } from "react-icons/si";
-import { GoMail } from "react-icons/go";
 import { PiArrowElbowDownRight } from "react-icons/pi";
 import mehedi_webp from "@site/static/img/mehedi.webp";
-
-const socialLinks = [
-  {
-    href: "mailto:mhasan502@gmail.com",
-    icon: GoMail,
-    hover_text: "mhasan502@gmail.com",
-  },
-  {
-    href: "https://github.com/mhasan502",
-    icon: FaGithub,
-    hover_text: "GitHub",
-  },
-  {
-    href: "https://linkedin.com/in/Mhasan502",
-    icon: FaLinkedin,
-    hover_text: "LinkedIn",
-  },
-  {
-    href: "https://scholar.google.com/citations?user=1E7N-BoAAAAJ",
-    icon: SiGooglescholar,
-    hover_text: "Google Scholar",
-  },
-  {
-    href: "https://stackoverflow.com/users/14150890/mhasan502",
-    icon: FaStackOverflow,
-    hover_text: "Stack Overflow",
-  },
-];
+import { socialLinks } from "./data/socialLinks";
+import { getExperienceYears } from "./utils/getExperienceYears";
 
 
 export default function HeroSection() {
   const { siteConfig } = useDocusaurusContext();
-  const [experience, setExperience] = useState({ years: 3 });
-
-  useEffect(() => {
-    const startDate = new Date(2022, 4, 1);
-    const currentDate = new Date();
-
-    const totalMonths = (currentDate.getFullYear() - startDate.getFullYear()) * 12 + (currentDate.getMonth() - startDate.getMonth());
-    const years = Math.floor(totalMonths / 12);
-    const months = totalMonths % 12;
-    const roundedYears = months >= 5 ? years + 0.5 : years;
-
-    setExperience({ years, roundedYears });
-  }, []);
+  const experience = getExperienceYears(new Date(2022, 4, 1));
 
 
   return (
@@ -106,16 +62,16 @@ export default function HeroSection() {
             </li>
           </ul>
           <div className={styles.social__links__container}>
-            {socialLinks.map(({ href, icon: Icon, hover_text }, idx) => (
-              <div key={idx} className={styles.social__link__wrapper}>
+            {socialLinks.map(({ id, href, icon: Icon, hoverText }) => (
+              <div key={id} className={styles.social__link__wrapper}>
                 <a
                   className={styles.social__link__item}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  title={hover_text}
-                  aria-label={hover_text}
-                  data-tooltip={hover_text}
+                  title={hoverText}
+                  aria-label={hoverText}
+                  data-tooltip={hoverText}
                 >
                   <Icon className={styles.social__icon} />
                 </a>

@@ -33,9 +33,32 @@
 }
 
 /* Navbar */
-.navbar {
+html body .navbar,
+html body .navbar.navbar--dark,
+html body .navbar.navbar--primary {
   height: 4rem;
   padding: 0 4rem;
+  --ifm-navbar-background-color: transparent;
+  --ifm-navbar-shadow: none;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid transparent;
+  transition: background-color 180ms ease, border-color 180ms ease,
+    backdrop-filter 180ms ease, -webkit-backdrop-filter 180ms ease;
+}
+
+html.navbar-scrolled body .navbar,
+html.navbar-scrolled body .navbar.navbar--dark,
+html.navbar-scrolled body .navbar.navbar--primary {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom-color: rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme='dark'].navbar-scrolled body .navbar,
+html[data-theme='dark'].navbar-scrolled body .navbar.navbar--dark,
+html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
+  border-bottom-color: rgba(148, 163, 184, 0.24);
 }
 
 .navbar__title {

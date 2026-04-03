@@ -1,41 +1,23 @@
-import Heading from "@theme/Heading";
 import styles from "@site/src/css/resume.module.css";
 import {IoSchoolOutline} from "react-icons/io5";
-
-const educationData = [
-  {
-    degree: "Bachelor of Science in Computer Science and Engineering",
-    period: "Spring 2018 - Summer 2022",
-    institution: "Department of Electrical and Computer Engineering, North South University",
-    details: [
-      "CGPA: 3.77 / 4.00 (90-92% marks)",
-      "Graduated with Magna Cum Laude.",
-      "Thesis Title: Inter-Dataset Critical Evaluation of Common Object Detection Model.",
-      "Achieved 2nd Runner Up position in Electrathon 2018 organized by IEEE NSU."
-    ]
-  }
-]
+import { educationData } from "./data/educationData";
+import SectionHeader from "./common/SectionHeader";
+import BulletList from "./common/BulletList";
 
 function EducationTimelineContent() {
   return (
-    <div className={styles.timeline__parent}>
-      {educationData.map((edu, idx) => (
-        <div className={styles.timeline__item} key={idx}>
+      <div className={styles.timeline__parent}>
+      {educationData.map((edu) => (
+        <div className={styles.timeline__item} key={edu.id}>
           <div className={styles.timeline__content}>
             <div className={styles.timeline__action}>
-              <Heading as="h3" className={styles.timeline__action__title}>{edu.degree}</Heading>
+              <h3 className={styles.timeline__action__title}>{edu.degree}</h3>
               <span className={styles.timeline__action__period}>
                 {edu.period}
               </span>
             </div>
             <p className={styles.timeline__organization}>{edu.institution}</p>
-            <ul className={styles.timeline__bullet__list}>
-              {edu.details.map((detail, j) => (
-                <li key={j} className={styles.timeline__bullet__list__items}>
-                  {detail}
-                </li>
-              ))}
-            </ul>
+            <BulletList items={edu.details} />
           </div>
         </div>
       ))}
@@ -46,10 +28,7 @@ function EducationTimelineContent() {
 export default function Education() {
   return (
     <div id="education" className="container">
-      <div className={styles.center__container}>
-        <IoSchoolOutline size="24"/>
-        <Heading as="h2"> Education </Heading>
-      </div>
+      <SectionHeader icon={IoSchoolOutline} title="Education" />
       <EducationTimelineContent/>
     </div>
   );
