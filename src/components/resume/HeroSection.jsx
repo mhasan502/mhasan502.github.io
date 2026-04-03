@@ -64,6 +64,11 @@ export default function HeroSection() {
     return () => window.clearInterval(typingTimer);
   }, [currentBubbleMessage, isBadgeBubbleOpen]);
 
+  const isBubbleTyping =
+    isBadgeBubbleOpen &&
+    currentBubbleMessage.length > 0 &&
+    typedBubbleText.length < currentBubbleMessage.length;
+
   function pickRandomBubbleMessage() {
     if (summarizedAIData.length === 0) {
       return "";
@@ -112,7 +117,22 @@ export default function HeroSection() {
                 <HiOutlineSparkles className={styles.hero__badge__icon} />
               )}
               <span className={styles.hero__badge__textWrap}>
-                <span className={styles.hero__badge__text}>{isBadgeBubbleOpen ? "· · ·" : siteConfig.tagline}</span>
+                <span className={styles.hero__badge__text}>
+                  {isBadgeBubbleOpen ? (
+                    isBubbleTyping ? (
+                      <span className={styles.hero__badge__loading} aria-label="AI is generating">
+                        <span className={styles.hero__badge__dot} aria-hidden="true" />
+                        <span className={styles.hero__badge__dot} aria-hidden="true" />
+                        <span className={styles.hero__badge__dot} aria-hidden="true" />
+                        <span className={styles.hero__badge__dot} aria-hidden="true" />
+                      </span>
+                    ) : (
+                      "· · · ·"
+                    )
+                  ) : (
+                    siteConfig.tagline
+                  )}
+                </span>
                 <span className={styles.hero__badge__textSizer} aria-hidden="true">{siteConfig.tagline}</span>
               </span>
             </a>
