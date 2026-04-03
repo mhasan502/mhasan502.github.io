@@ -205,21 +205,121 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    border: 1px solid var(--resume-badge-border);
+    border: 2px solid var(--resume-badge-border);
     background: var(--resume-badge-bg);
     padding: 0.45rem 0.95rem;
     border-radius: 1rem;
     color: var(--resume-badge-text);
     font-size: 0.92rem;
     font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .hero__badge:hover {
-    transform: rotate(5deg);
+    animation: heroBadgeShake 0.6s ease-in-out infinite;
+}
+
+.hero__badge__open:hover {
+    animation: none;
+}
+
+.hero__badge:focus-visible {
+    outline: 2px solid var(--resume-badge-text);
+    outline-offset: 3px;
+}
+
+@keyframes heroBadgeShake {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-1px) rotate(-2deg);
+    }
+    50% {
+        transform: translateX(1px) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-1px) rotate(-2deg);
+    }
 }
 
 .hero__badge__icon {
-    font-size: 0.88rem;
+    font-size: 1.3rem;
+}
+
+.hero__badge__textWrap {
+    display: grid;
+}
+
+.hero__badge__text,
+.hero__badge__textSizer {
+    grid-area: 1 / 1;
+}
+
+.hero__badge__textSizer {
+    visibility: hidden;
+}
+
+.hero__badge__wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.hero__badge__bubble {
+    position: absolute;
+    left: calc(100% + 0.65rem);
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: normal;
+    width: min(30rem, calc(100vw - 3rem));
+    padding: 0.36rem 0.62rem;
+    border-radius: 0.5rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    font-weight: 600;
+    color: var(--resume-tooltip-text);
+    background: var(--resume-tooltip-bg);
+    border: 1px solid var(--resume-tooltip-border);
+    box-sizing: border-box;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    z-index: 2;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 0.08rem;
+}
+
+.hero__badge__bubble span:first-child {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.hero__badge__bubble::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translateY(-50%) rotate(45deg);
+    background: var(--resume-tooltip-bg);
+    border-left: 1px solid var(--resume-tooltip-border);
+    border-bottom: 1px solid var(--resume-tooltip-border);
+}
+
+.hero__badge__bubble__cursor {
+    animation: heroBadgeCursorBlink 1s steps(1, end) infinite;
+}
+
+@keyframes heroBadgeCursorBlink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
 }
 
 .hero__introduction__list {
@@ -343,7 +443,6 @@
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     white-space: nowrap;
-    background-color: var(--resume-period-bg);
     color: var(--resume-period-text);
 }
 
@@ -492,6 +591,19 @@
     .hero__introduction__list li {
         gap: 0.5rem;
         font-size: 0.94rem;
+    }
+
+    .hero__badge__bubble {
+        left: 50%;
+        top: calc(100% + 0.6rem);
+        transform: translateX(-50%);
+        width: min(30rem, calc(100vw - 2rem));
+    }
+
+    .hero__badge__bubble::before {
+        left: 50%;
+        top: -6px;
+        transform: translateX(-50%) rotate(45deg);
     }
 }
 
