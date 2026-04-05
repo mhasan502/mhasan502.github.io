@@ -4,39 +4,46 @@ import SectionHeader from "./common/SectionHeader";
 
 export const skillsData = [
   {
-    id: "languages_frameworks",
-    label: "Languages & Frameworks",
-    value: "Python, C++, PyTorch, FastAPI"
+    id: "core",
+    label: "Core",
+    items: ["Python", "C++", "PyTorch", "FastAPI"]
   },
   {
-    id: "data_infrastructure",
-    label: "Data & Infrastructure",
-    value: "MongoDB, Docker, Redis, Apache Kafka, Airflow"
+    id: "data_infra",
+    label: "Data & Infra",
+    items: ["MongoDB", "Docker", "Redis", "Kafka", "Airflow"]
   },
   {
-    id: "systems_engineering",
-    label: "Systems Engineering",
-    value: "Distributed pipelines, Stream processing, Concurrency, ETL orchestration, Event-driven systems"
+    id: "systems",
+    label: "Systems",
+    items: ["Distributed Pipelines", "Concurrency", "ETL Orchestration", "Event-Driven Systems"]
   },
   {
-    id: "specializations",
-    label: "Specializations",
-    value: "AI agents, LLM applications, Real-time and scheduled vision inference, Vision system optimization"
+    id: "specialization",
+    label: "Specialization",
+    items: ["AI Agents", "LLM Apps", "Real-Time Vision Inference", "Vision Optimization"]
   },
 ];
 
 
 export default function Skills() {
   return (
-    <div id="skills" className="container">
+    <section id="skills" className={`container ${styles.skillsMinimal}`}>
       <SectionHeader icon={VscTools} title="Skills"/>
-      <ul>
+      <div className={styles.skillsLinear}>
         {skillsData.map((item) => (
-          <li key={item.id} className={styles.skills__list__item}>
-            <strong>{item.label}:</strong> {item.value}
-          </li>
+          <article key={item.id} className={styles.skillsLinear__row}>
+            <h3 className={styles.skillsLinear__label}>{item.label}</h3>
+            <div className={styles.skillsLinear__items}>
+              {item.items.map((skill) => (
+                <span key={`${item.id}-${skill}`} className={styles.skillsLinear__item}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </article>
         ))}
-      </ul>
-    </div>
+      </div>
+    </section>
   );
 }
