@@ -1,25 +1,31 @@
 import styles from "@site/src/css/resume.module.css";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { useEffect, useRef, useState } from "react";
-import { PiArrowElbowDownRight } from "react-icons/pi";
+import {useEffect, useRef, useState} from "react";
+import {PiArrowElbowDownRight} from "react-icons/pi";
 import mehedi_webp from "@site/static/img/mehedi.webp";
-import { socialLinks } from "./data/socialLinks";
-import { getExperienceYears } from "./utils/getExperienceYears";
-import { HiSparkles, HiOutlineSparkles } from "react-icons/hi2";
-import { summarizedAIData } from "./data/summarizedAIData";
+import {socialLinks} from "./data/socialLinks";
+import {getExperienceYears} from "./utils/getExperienceYears";
+import {HiSparkles, HiOutlineSparkles} from "react-icons/hi2";
+import {summarizedAIData} from "./data/summarizedAIData";
 import scholarMetrics from "./data/scholarMetrics.json";
 
 
 export default function HeroSection() {
-  const { siteConfig } = useDocusaurusContext();
+  const {siteConfig} = useDocusaurusContext();
   const experience = getExperienceYears();
   const emailLink = socialLinks.find((item) => item.id === "email")?.href ?? "#";
+  const openSourceContributions = 2;
   const [isBadgeBubbleOpen, setIsBadgeBubbleOpen] = useState(false);
   const [currentBubbleMessage, setCurrentBubbleMessage] = useState("");
   const [typedBubbleText, setTypedBubbleText] = useState("");
   const badgeWrapperRef = useRef(null);
   const recentBubbleIdsRef = useRef([]);
   const googleScholarCitations = Number.isFinite(scholarMetrics?.citations) ? scholarMetrics.citations : 48;
+  const heroStats = [
+    {label: "Years Experience", value: `${experience.roundedYears}+`},
+    {label: "Scholar Citations", value: `${googleScholarCitations}`},
+    {label: "Open Source Contributions", value: `${openSourceContributions}`},
+  ];
 
   useEffect(() => {
     function handlePointerDown(event) {
@@ -88,99 +94,41 @@ export default function HeroSection() {
     <header className={styles.heroBanner}>
       <div className={styles.hero__container}>
         <div className={styles.hero__left}>
-          <img className={styles.hero__image} src={mehedi_webp} alt="Picture of Mhasan502" />
           <div className={styles.hero__title}>
             <span className={styles.hero__title__base}>Md.</span>{" "}
             <span className={styles.hero__title__highlight}>Mehedi Hasan</span>
           </div>
-          <div className={styles.hero__badge__wrap} ref={badgeWrapperRef}>
-            <a
-              className={`${styles.hero__badge} ${isBadgeBubbleOpen ? styles.hero__badge__open : ""}`}
-              href={emailLink}
-              aria-label="Toggle badge message"
-              aria-expanded={isBadgeBubbleOpen}
-              aria-controls="hero-badge-bubble"
-              onClick={(event) => {
-                event.preventDefault();
-                setIsBadgeBubbleOpen((open) => {
-                  if (open) {
-                    return false;
-                  }
-                  setCurrentBubbleMessage(pickRandomBubbleMessage());
-                  return true;
-                });
-              }}
-            >
-              {isBadgeBubbleOpen ? (
-                <HiSparkles className={styles.hero__badge__icon} />
-              ) : (
-                <HiOutlineSparkles className={styles.hero__badge__icon} />
-              )}
-              <span className={styles.hero__badge__textWrap}>
-                <span className={styles.hero__badge__text}>
-                  {isBadgeBubbleOpen ? (
-                    isBubbleTyping ? (
-                      <span className={styles.hero__badge__loading} aria-label="AI is generating">
-                        <span className={styles.hero__badge__dot} aria-hidden="true" />
-                        <span className={styles.hero__badge__dot} aria-hidden="true" />
-                        <span className={styles.hero__badge__dot} aria-hidden="true" />
-                        <span className={styles.hero__badge__dot} aria-hidden="true" />
-                      </span>
-                    ) : (
-                      "· · · ·"
-                    )
-                  ) : (
-                    siteConfig.tagline
-                  )}
-                </span>
-                <span className={styles.hero__badge__textSizer} aria-hidden="true">{siteConfig.tagline}</span>
-              </span>
-            </a>
-            {isBadgeBubbleOpen && (
-              <div id="hero-badge-bubble" className={styles.hero__badge__bubble} role="status" aria-live="polite">
-                <span>{typedBubbleText}</span>
-                <span className={styles.hero__badge__bubble__cursor} aria-hidden="true">|</span>
+          <p className={styles.hero__subtitle}>
+            Building production-ready AI systems across computer vision, high-performance inference, and LLM workflows.
+          </p>
+          <div className={styles.hero__stats}>
+            {heroStats.map((item) => (
+              <div key={item.label} className={styles.hero__stat}>
+                <span className={styles.hero__stat__value}>{item.value}</span>
+                <span className={styles.hero__stat__label}>{item.label}</span>
               </div>
-            )}
+            ))}
           </div>
           <ul className={styles.hero__introduction__list}>
             <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon}/>
               <span className={styles.hero__bullet__text}>
-                AI/ML Engineer with <span className={styles.yellow}>{experience.roundedYears}+ years </span> of experience.
+                Specialized in computer vision, inference systems, MLOps, and LLM applications.
               </span>
             </li>
             <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon}/>
               <span className={styles.hero__bullet__text}>
-                Specializing in computer vision, inference systems, MLOps, and LLM applications.
+                Shipped AI agents, real-time vision pipelines, and optimized GPU inference workloads.
               </span>
             </li>
             <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
-              <span className={styles.hero__bullet__text}>
-                Shipped AI agents, real-time vision model pipelines, optimized GPU inference.
-              </span>
-            </li>
-            <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
-              <span className={styles.hero__bullet__text}>
-                Open Source Contribution: <span className={styles.yellow}>2</span>
-              </span>
-            </li>
-            <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
-              <span className={styles.hero__bullet__text}>
-                Google Scholar Citations: <span className={styles.yellow}>{googleScholarCitations}</span>
-              </span>
-            </li>
-            <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon} />
+              <PiArrowElbowDownRight className={styles.hero__bullet__icon}/>
               <span className={styles.hero__bullet__text}>Bachelor in CSE, North South University</span>
             </li>
           </ul>
           <div className={styles.social__links__container}>
-            {socialLinks.map(({ id, href, icon: Icon, hoverText }) => (
+            {socialLinks.map(({id, href, icon: Icon, hoverText}) => (
               <div key={id} className={styles.social__link__wrapper}>
                 <a
                   className={styles.social__link__item}
@@ -191,10 +139,67 @@ export default function HeroSection() {
                   aria-label={hoverText}
                   data-tooltip={hoverText}
                 >
-                  <Icon className={styles.social__icon} />
+                  <Icon className={styles.social__icon}/>
                 </a>
               </div>
             ))}
+          </div>
+        </div>
+        <div className={styles.hero__right}>
+          <div className={styles.hero__image__panel}>
+            <img className={styles.hero__image} src={mehedi_webp} alt="Picture of Mhasan502"/>
+            <div className={styles.hero__expertise__list}>
+              <div className={styles.hero__badge__wrap} ref={badgeWrapperRef}>
+                <a
+                  className={`${styles.hero__badge} ${isBadgeBubbleOpen ? styles.hero__badge__open : ""}`}
+                  href={emailLink}
+                  aria-label="Toggle badge message"
+                  aria-expanded={isBadgeBubbleOpen}
+                  aria-controls="hero-badge-bubble"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setIsBadgeBubbleOpen((open) => {
+                      if (open) {
+                        return false;
+                      }
+                      setCurrentBubbleMessage(pickRandomBubbleMessage());
+                      return true;
+                    });
+                  }}
+                >
+                  {isBadgeBubbleOpen ? (
+                    <HiSparkles className={styles.hero__badge__icon}/>
+                  ) : (
+                    <HiOutlineSparkles className={styles.hero__badge__icon}/>
+                  )}
+                  <span className={styles.hero__badge__textWrap}>
+                <span className={styles.hero__badge__text}>
+                  {isBadgeBubbleOpen ? (
+                    isBubbleTyping ? (
+                      <span className={styles.hero__badge__loading} aria-label="AI is generating">
+                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                      </span>
+                    ) : (
+                      "· · · ·"
+                    )
+                  ) : (
+                    siteConfig.tagline
+                  )}
+                </span>
+                <span className={styles.hero__badge__textSizer} aria-hidden="true">{siteConfig.tagline}</span>
+              </span>
+                </a>
+                {isBadgeBubbleOpen && (
+                  <div id="hero-badge-bubble" className={styles.hero__badge__bubble} role="status" aria-live="polite">
+                    <span>{typedBubbleText}</span>
+                    <span className={styles.hero__badge__bubble__cursor} aria-hidden="true">|</span>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>

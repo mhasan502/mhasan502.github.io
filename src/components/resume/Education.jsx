@@ -19,32 +19,35 @@ const educationData = [
   },
 ];
 
+function EducationItem({edu}) {
+  return (
+    <article className={styles.experienceTimeline__card}>
+      <div className={styles.experienceTimeline__header}>
+        <h3 className={styles.experienceTimeline__title}>{edu.degree}</h3>
+        <span className={styles.experienceTimeline__period}>{edu.period}</span>
+      </div>
+      <p className={styles.experienceTimeline__subline}>{edu.institution}</p>
+      <div>
+        <BulletList items={edu.details} itemClassName={styles.experienceTimeline__bullet__item}/>
+      </div>
+    </article>
+  );
+}
 
 function EducationTimelineContent() {
   return (
-    <div className={styles.timeline__parent}>
+    <div className={styles.educationTimeline__list}>
       {educationData.map((edu) => (
-        <div className={styles.timeline__item} key={edu.id}>
-          <div className={styles.timeline__content}>
-            <div className={styles.timeline__action}>
-              <h3 className={styles.timeline__action__title}>{edu.degree}</h3>
-              <span className={styles.timeline__action__period}>
-                {edu.period}
-              </span>
-            </div>
-            <p className={styles.timeline__organization}>{edu.institution}</p>
-            <BulletList items={edu.details}/>
-          </div>
-        </div>
+        <EducationItem key={edu.id} edu={edu}/>
       ))}
     </div>
-  )
+  );
 }
 
 export default function Education() {
   return (
     <div id="education" className="container">
-      <SectionHeader icon={IoSchoolOutline} title="Education"/>
+      <SectionHeader icon={IoSchoolOutline} title="Education" iconSize={28}/>
       <EducationTimelineContent/>
     </div>
   );
