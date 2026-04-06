@@ -135,6 +135,7 @@ const config = {
             label: 'Resume',
             position: 'right',
             target: '_blank',
+            className: 'navbar-resume-button',
           },
         ],
       },

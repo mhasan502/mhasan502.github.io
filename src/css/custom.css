@@ -74,6 +74,32 @@ html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
   margin-right: 5px;
 }
 
+.navbar__link.navbar-resume-button,
+.menu__link.navbar-resume-button {
+  border: 1.5px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary) !important;
+  border-radius: 999px;
+  padding: 0.35rem 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+  transition: background-color 150ms ease, color 150ms ease,
+    border-color 150ms ease;
+}
+
+.navbar__link.navbar-resume-button:hover,
+.menu__link.navbar-resume-button:hover {
+  background-color: var(--ifm-color-primary);
+  color: #ffffff !important;
+  border-color: var(--ifm-color-primary);
+}
+
+.navbar__items--right {
+  gap: 1rem;
+}
+
 @media (min-width: 768px) {
   .navbar__title {
     font-size: 1.75rem;
@@ -87,6 +113,20 @@ html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
     padding: 0 1rem !important;
   }
 
+  html.navbar-scrolled body .navbar,
+  html.navbar-scrolled body .navbar.navbar--dark,
+  html.navbar-scrolled body .navbar.navbar--primary {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.96) !important;
+  }
+
+  html[data-theme='dark'].navbar-scrolled body .navbar,
+  html[data-theme='dark'].navbar-scrolled body .navbar.navbar--dark,
+  html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
+    background: rgba(27, 27, 29, 0.96) !important;
+  }
+
   .navbar.navbar-sidebar--show {
     --ifm-navbar-background-color: #ffffff;
     background: #ffffff;
@@ -97,6 +137,17 @@ html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
   html[data-theme='dark'] .navbar.navbar-sidebar--show {
     --ifm-navbar-background-color: #1b1b1d;
     background: #1b1b1d;
+  }
+
+  .navbar__items--right .navbar__link.navbar-resume-button {
+    display: none;
+  }
+
+  .navbar-sidebar .menu__link.navbar-resume-button {
+    width: calc(100% - 2rem);
+    margin: 0.75rem 1rem 0;
+    box-sizing: border-box;
+    justify-content: center;
   }
 }
 
