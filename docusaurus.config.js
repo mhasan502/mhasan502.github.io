@@ -13,7 +13,7 @@ import rehypeKatex from 'rehype-katex';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Mhasan502',
-  tagline: '',
+  tagline: 'AI/ML Engineer',
   favicon: 'img/favicon.webp',
 
 
@@ -92,7 +92,7 @@ const config = {
           lastmod: 'date',
           changefreq: 'weekly',
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
+          ignorePatterns: ['/tags/**', '/blog/tags/**', '/blog/page/**'],
           filename: 'sitemap.xml',
           createSitemapItems: async (params) => {
             const {defaultCreateSitemapItems, ...rest} = params;
@@ -115,13 +115,13 @@ const config = {
       image: 'img/social-card.webp',
       navbar: {
         title: 'MEHEDI HASAN',
-        logo: {
-          alt: 'mhasan502',
-          src: 'img/mehedi.webp',
-          style: {
-            borderRadius: '5px',
-          }
-        },
+        // logo: {
+        //   alt: 'mhasan502',
+        //   src: 'img/mehedi.webp',
+        //   style: {
+        //     borderRadius: '5px',
+        //   }
+        // },
         items: [
           // {
           //   type: 'docSidebar',
@@ -130,6 +130,12 @@ const config = {
           //   label: 'Tutorial',
           // },
           // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            href: '/files/Resume%20of%20Md.%20Mehedi%20Hasan.pdf',
+            label: 'Resume',
+            position: 'right',
+            target: '_blank',
+          },
         ],
       },
       prism: {
