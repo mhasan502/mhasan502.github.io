@@ -130,6 +130,12 @@ const config = {
           //   label: 'Tutorial',
           // },
           // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            href: '/files/Resume%20of%20Md.%20Mehedi%20Hasan.pdf',
+            label: 'Resume',
+            position: 'right',
+            target: '_blank',
+          },
         ],
       },
       prism: {

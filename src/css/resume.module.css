@@ -452,6 +452,137 @@
     white-space: nowrap;
 }
 
+.hero__cta__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 0.22rem;
+}
+
+.hero__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    appearance: none;
+    border-radius: 0.72rem;
+    border: 1px solid var(--resume-badge-border);
+    text-decoration: none;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1;
+    padding: 0.62rem 1rem;
+    transition: transform var(--resume-transition-fast), box-shadow var(--resume-transition-fast), background-color var(--resume-transition-fast), color var(--resume-transition-fast);
+}
+
+.hero__cta:hover {
+    transform: translateY(-1px);
+}
+
+.hero__cta:focus-visible {
+    outline: 2px solid var(--resume-title-highlight);
+    outline-offset: 2px;
+}
+
+.hero__cta__primary {
+    background: var(--resume-title-highlight);
+    color: #fff;
+    border-color: transparent;
+}
+
+.hero__cta__primary:hover {
+    box-shadow: 0 10px 18px var(--resume-social-hover-shadow);
+}
+
+.hero__cta__secondary {
+    background: transparent;
+    color: var(--resume-text-primary);
+}
+
+.hero__cta__secondary:hover {
+    background: var(--resume-badge-bg);
+}
+
+.hero__contactModal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(2, 9, 23, 0.72);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.hero__contactModal__content {
+    width: min(420px, 100%);
+    border-radius: 0.9rem;
+    border: 1px solid var(--resume-badge-border);
+    background: var(--resume-bg-base-top);
+    box-shadow: 0 20px 36px rgba(2, 8, 20, 0.36);
+    padding: 1rem;
+    display: grid;
+    gap: 0.64rem;
+}
+
+.hero__contactModal__title {
+    margin: 0;
+    color: var(--resume-text-primary);
+    font-size: 1.04rem;
+    font-weight: 700;
+}
+
+.hero__contactModal__link {
+    color: var(--resume-text-primary);
+    text-decoration: none;
+    border: 1px solid var(--resume-badge-border);
+    border-radius: 0.62rem;
+    background: var(--resume-badge-bg);
+    padding: 0.62rem 0.72rem;
+    line-height: 1.4;
+}
+
+.hero__contactModal__link:hover,
+.hero__contactModal__link:focus-visible {
+    text-decoration: none;
+}
+
+.hero__contactModal__linkLabel {
+    text-decoration: none;
+}
+
+.hero__contactModal__linkValue {
+    text-decoration: underline;
+    text-underline-offset: 0.14em;
+}
+
+.hero__contactModal__close {
+    justify-self: end;
+    appearance: none;
+    border: 1px solid var(--resume-badge-border);
+    border-radius: 0.62rem;
+    background: transparent;
+    color: var(--resume-text-primary);
+    font-family: inherit;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.2;
+    min-height: 2.2rem;
+    padding: 0.42rem 0.78rem;
+    cursor: pointer;
+}
+
+.hero__contactModal__close:hover {
+    background: var(--resume-badge-bg);
+}
+
+.hero__contactModal__close:focus-visible {
+    outline: 2px solid var(--resume-title-highlight);
+    outline-offset: 2px;
+}
+
 .hero__right {
     display: flex;
     justify-content: flex-end;
@@ -1079,6 +1210,10 @@
     .hero__introduction__list li {
         gap: 0.5rem;
         font-size: 0.94rem;
+    }
+
+    .hero__cta__group {
+        justify-content: center;
     }
 
     .social__links__container {

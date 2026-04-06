@@ -11,7 +11,7 @@ export const experiencesData = [
     details: [
       "Led development of Charlie, an AI support agent enabling real-time, context-aware interactions integrated with internal data and application state.",
       "Designed and implemented agent pipelines (retrieval, tool use, response generation) to improve answer accuracy and reduce manual support dependency.",
-      "Contributed to the architecture and implementation of next-generation Projsite platform, spanning backend, frontend, and AI systems.",
+      "Contributed to the architecture and implementation of the next-generation Projsite platform, spanning backend, frontend, and AI systems.",
       "Contributed to Magic Reader, enabling automated conversion of supplier order confirmations into actionable delivery plans using AI and OCR.",
       "Built workflow orchestration using Apache Airflow, automating ingestion and transformation of external booking data into platform-ready formats.",
     ],

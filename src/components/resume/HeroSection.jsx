@@ -14,8 +14,12 @@ export default function HeroSection() {
   const {siteConfig} = useDocusaurusContext();
   const experience = getExperienceYears();
   const emailLink = socialLinks.find((item) => item.id === "email")?.href ?? "#";
+  const contactEmail = emailLink.replace("mailto:", "");
+  const whatsappLink = "https://wa.link/f3urw3";
+  const resumeLink = "/files/Resume%20of%20Md.%20Mehedi%20Hasan.pdf";
   const openSourceContributions = 2;
   const [isBadgeBubbleOpen, setIsBadgeBubbleOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [currentBubbleMessage, setCurrentBubbleMessage] = useState("");
   const [typedBubbleText, setTypedBubbleText] = useState("");
   const badgeWrapperRef = useRef(null);
@@ -36,6 +40,7 @@ export default function HeroSection() {
 
     function handleKeyDown(event) {
       if (event.key === "Escape") {
+        setIsContactModalOpen(false);
         setIsBadgeBubbleOpen(false);
       }
     }
@@ -99,7 +104,7 @@ export default function HeroSection() {
             <span className={styles.hero__title__highlight}>Mehedi Hasan</span>
           </h1>
           <p className={styles.hero__subtitle}>
-            Building production-ready AI systems across computer vision, high-performance inference, and LLM workflows.
+            Creating scalable AI solutions across visual intelligence, high-performance inference, and generative AI.
           </p>
           <div className={styles.hero__stats}>
             {heroStats.map((item) => (
@@ -127,6 +132,18 @@ export default function HeroSection() {
               <span className={styles.hero__bullet__text}>Bachelor in CSE, North South University</span>
             </li>
           </ul>
+          <div className={styles.hero__cta__group}>
+            <button
+              type="button"
+              className={`${styles.hero__cta} ${styles.hero__cta__primary}`}
+              onClick={() => setIsContactModalOpen(true)}
+            >
+              Contact me
+            </button>
+            <a className={`${styles.hero__cta} ${styles.hero__cta__secondary}`} href={resumeLink} target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
+          </div>
           <div className={styles.social__links__container}>
             {socialLinks.map(({id, href, icon: Icon, hoverText}) => (
               <div key={id} className={styles.social__link__wrapper}>
@@ -203,6 +220,42 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+      {isContactModalOpen && (
+        <div
+          className={styles.hero__contactModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Contact details"
+          onClick={() => setIsContactModalOpen(false)}
+        >
+          <div
+            className={styles.hero__contactModal__content}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <h3 className={styles.hero__contactModal__title}>Contact me</h3>
+            <a className={styles.hero__contactModal__link} href={emailLink}>
+              <span className={styles.hero__contactModal__linkLabel}>Email:</span>{" "}
+              <span className={styles.hero__contactModal__linkValue}>{contactEmail}</span>
+            </a>
+            <a
+              className={styles.hero__contactModal__link}
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.hero__contactModal__linkLabel}>WhatsApp:</span>{" "}
+              <span className={styles.hero__contactModal__linkValue}>wa.link/f3urw3</span>
+            </a>
+            <button
+              type="button"
+              className={styles.hero__contactModal__close}
+              onClick={() => setIsContactModalOpen(false)}
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
