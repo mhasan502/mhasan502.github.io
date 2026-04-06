@@ -92,7 +92,7 @@ const config = {
           lastmod: 'date',
           changefreq: 'weekly',
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
+          ignorePatterns: ['/tags/**', '/blog/tags/**', '/blog/page/**'],
           filename: 'sitemap.xml',
           createSitemapItems: async (params) => {
             const {defaultCreateSitemapItems, ...rest} = params;

@@ -86,7 +86,7 @@ html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
   }
 }
 
-/* Global layout spacing */
-.container {
+/* Home (/) layout spacing only */
+.home-page .container {
   margin: 4rem auto;
 }

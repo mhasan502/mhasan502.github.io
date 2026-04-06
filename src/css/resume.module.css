@@ -1,6 +1,4 @@
 .resumePage {
-    --resume-section-accent: #1285e9;
-    --resume-section-accent-2: #2b63f0;
     --resume-text-primary: #e8edf6;
     --resume-text-muted: rgba(225, 234, 245, 0.84);
     --resume-title-highlight: #1e7bff;
@@ -16,7 +14,6 @@
     --resume-tooltip-bg: rgba(3, 16, 39, 0.95);
     --resume-tooltip-border: rgba(78, 165, 255, 0.38);
     --resume-timeline-accent: #1976d2;
-    --resume-period-text: #f3f6fb;
     --resume-bg-radial-1: rgba(8, 66, 158, 0.22);
     --resume-bg-radial-2: rgba(14, 96, 178, 0.14);
     --resume-bg-radial-3: rgba(6, 50, 126, 0.2);
@@ -32,12 +29,16 @@
     --resume-transition-base: 0.3s ease;
     --resume-transition-fast: 0.22s ease;
     --resume-transition-fade: 0.18s ease;
+    --hero-badge-icon-size: 1.3rem;
+    --hero-badge-dot-size: 0.34rem;
+    --hero-badge-dot-cycle: 1.2s;
+    --hero-badge-dot-delay-step: 0.16s;
+    --hero-badge-bubble-offset: 0.65rem;
+    --hero-badge-shake-duration: 0.8s;
     --resume-card-radius: 0.95rem;
     --resume-card-padding: 1.16rem 2rem 2rem;
     --resume-card-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
     var(--resume-badge-bg);
-    --resume-card-shadow-dark: 0 12px 24px rgba(3, 13, 34, 0.14);
-    --resume-card-shadow-light: 0 10px 20px rgba(17, 40, 73, 0.08);
     position: relative;
     min-height: 100vh;
     overflow: hidden;
@@ -48,8 +49,6 @@
 }
 
 :global([data-theme='light']) .resumePage {
-    --resume-section-accent: #1b66c9;
-    --resume-section-accent-2: #3b82db;
     --resume-text-primary: #0f2137;
     --resume-text-muted: rgba(24, 46, 74, 0.78);
     --resume-title-highlight: #1b66c9;
@@ -65,7 +64,6 @@
     --resume-tooltip-bg: rgba(244, 249, 255, 0.98);
     --resume-tooltip-border: rgba(27, 102, 201, 0.2);
     --resume-timeline-accent: #2b73cc;
-    --resume-period-text: #174375;
     --resume-bg-radial-1: rgba(101, 157, 220, 0.16);
     --resume-bg-radial-2: rgba(120, 176, 236, 0.12);
     --resume-bg-radial-3: rgba(92, 148, 210, 0.14);
@@ -185,6 +183,201 @@
     max-width: 62ch;
     line-height: 1.62;
     font-size: clamp(0.96rem, 1.28vw, 1.04rem);
+}
+
+.hero__badge {
+    margin: 0.22rem 0 0.18rem;
+    display: inline-grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 0.5rem;
+    min-width: 13rem;
+    border: 1px solid var(--resume-badge-border);
+    background: var(--resume-badge-bg);
+    padding: 0.45rem 0.9rem;
+    border-radius: 1rem;
+    color: var(--resume-badge-text);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform var(--resume-transition-fast), box-shadow var(--resume-transition-fast);
+    backdrop-filter: blur(4px);
+}
+
+.hero__badge:hover {
+    animation: heroBadgeShake var(--hero-badge-shake-duration) ease-in-out infinite;
+    box-shadow: 0 10px 26px rgba(4, 16, 42, 0.22);
+}
+
+.hero__badge__open:hover {
+    animation: none;
+}
+
+.hero__badge:focus-visible {
+    outline: 2px solid var(--resume-badge-text);
+    outline-offset: 3px;
+}
+
+@keyframes heroBadgeShake {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-1px) rotate(-2deg);
+    }
+    50% {
+        transform: translateX(1px) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-1px) rotate(-2deg);
+    }
+}
+
+.hero__badge__icon {
+    font-size: var(--hero-badge-icon-size);
+    justify-self: start;
+}
+
+.hero__badge__textWrap {
+    display: grid;
+    justify-self: center;
+    text-align: center;
+}
+
+.hero__badge__text,
+.hero__badge__textSizer {
+    grid-area: 1 / 1;
+    color: var(--resume-text-primary);
+}
+
+.hero__badge__textSizer {
+    visibility: hidden;
+}
+
+.hero__badge__loading {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.26rem;
+}
+
+.hero__badge__dot {
+    width: var(--hero-badge-dot-size);
+    height: var(--hero-badge-dot-size);
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.28;
+    transform: translateY(0) scale(0.82);
+    animation: heroBadgeChatgptTyping var(--hero-badge-dot-cycle) ease-in-out infinite;
+}
+
+.hero__badge__dot:nth-child(2) {
+    animation-delay: var(--hero-badge-dot-delay-step);
+}
+
+.hero__badge__dot:nth-child(3) {
+    animation-delay: calc(var(--hero-badge-dot-delay-step) * 2);
+}
+
+.hero__badge__dot:nth-child(4) {
+    animation-delay: calc(var(--hero-badge-dot-delay-step) * 3);
+}
+
+@keyframes heroBadgeChatgptTyping {
+    0%, 60%, 100% {
+        opacity: 0.28;
+        transform: translateY(0) scale(0.82);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(-2px) scale(1);
+    }
+}
+
+.hero__badge__wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero__badge__bubble {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 0.6rem);
+    transform: translateX(-50%);
+    white-space: normal;
+    width: min(27rem, calc(100vw - 2rem));
+    padding: 0.46rem 0.65rem;
+    border-radius: 0.5rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    font-weight: 600;
+    color: var(--resume-tooltip-text);
+    background: var(--resume-tooltip-bg);
+    border: 1px solid var(--resume-tooltip-border);
+    box-sizing: border-box;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    z-index: 2;
+    display: block;
+    isolation: isolate;
+}
+
+.hero__badge__bubble span:first-child {
+    display: inline;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.hero__badge__bubble::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -7px;
+    width: 12px;
+    height: 12px;
+    transform: translateX(-50%) rotate(45deg);
+    background: var(--resume-tooltip-bg);
+    border-top: 1px solid var(--resume-tooltip-border);
+    border-left: 1px solid var(--resume-tooltip-border);
+    border-top-left-radius: 2px;
+    z-index: -1;
+}
+
+.hero__badge__bubble__cursor {
+    display: inline;
+    margin-left: 0.03rem;
+    vertical-align: baseline;
+    animation: heroBadgeCursorBlink 1s steps(1, end) infinite;
+}
+
+@keyframes heroBadgeCursorBlink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+.hero__expertise__list {
+    margin-top: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero__expertise__item {
+    padding: 0.32rem 0.62rem;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    line-height: 1.1;
+    color: var(--resume-text-primary);
+    border: 1px solid var(--resume-badge-border);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .hero__stats {
@@ -375,12 +568,6 @@
     border-radius: var(--resume-card-radius);
     padding: var(--resume-card-padding);
     background: var(--resume-card-bg);
-    box-shadow: var(--resume-card-shadow-dark);
-}
-
-:global([data-theme='light']) .experienceTimeline__card,
-:global([data-theme='light']) .publicationCard {
-    box-shadow: var(--resume-card-shadow-light);
 }
 
 .experienceTimeline__header {
@@ -446,8 +633,6 @@
     padding: 0.34rem 0.68rem;
     border-radius: 999px;
     border: 1px solid var(--resume-badge-border);
-    background: linear-gradient(140deg, rgba(20, 86, 165, 0.4), rgba(14, 57, 120, 0.58));
-    color: var(--resume-period-text);
     font-size: 0.8rem;
     line-height: 1.2;
     font-weight: 700;
@@ -500,7 +685,6 @@
     height: 1.82rem;
     border-radius: 999px;
     border: 1px solid var(--resume-badge-border);
-    background: linear-gradient(145deg, rgba(14, 91, 170, 0.25), rgba(15, 60, 130, 0.3));
     color: var(--resume-text-primary);
     display: inline-flex;
     align-items: center;
@@ -517,8 +701,6 @@
     padding: 0.28rem 0.6rem;
     border-radius: 999px;
     border: 1px solid var(--resume-badge-border);
-    background: linear-gradient(140deg, rgba(20, 86, 165, 0.4), rgba(14, 57, 120, 0.58));
-    color: var(--resume-period-text);
     font-size: 0.8rem;
     line-height: 1.2;
     font-weight: 700;
@@ -746,7 +928,7 @@
     display: grid;
     gap: 0.62rem;
     border-radius: 0.78rem;
-    background: var(--resume-badge-bg);
+    background: var(--resume-card-bg);
     padding: 1rem 0 1rem 1rem;
 }
 

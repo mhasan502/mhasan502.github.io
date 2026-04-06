@@ -1,4 +1,6 @@
 User-agent: *
-Disallow:
+Disallow: /tags/
+Disallow: /blog/tags/
+Disallow: /blog/page/
 
 Sitemap: https://mhasan502.github.io/sitemap.xml
