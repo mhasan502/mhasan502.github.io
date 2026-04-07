@@ -1,6 +1,6 @@
 import styles from "@site/src/css/resume.module.css";
 import {IoBriefcaseOutline} from "react-icons/io5";
-import { experiencesData } from "./data/experiencesData";
+import {experiencesData} from "./data/experiencesData";
 import SectionHeader from "./common/SectionHeader";
 import BulletList from "./common/BulletList";
 
@@ -33,13 +33,10 @@ function ExperienceItem({exp, isLast}) {
             </div>
             <span className={styles.experienceTimeline__period}>{exp.period}</span>
           </div>
-
-          <div className={styles.experienceTimeline__details}>
-            <BulletList
-              items={exp.details}
-              itemClassName={styles.experienceTimeline__bullet__item}
-            />
-          </div>
+          <BulletList
+            items={exp.details}
+            itemClassName={styles.experienceTimeline__bullet__item}
+          />
         </article>
       </div>
     </div>
@@ -50,7 +47,7 @@ function ExperienceTimelineContent() {
   const visibleExperiences = experiencesData.filter((exp) => !exp.academic);
 
   return (
-    <div className={`${styles.timeline__parent} ${styles.experienceTimeline__parent}`}>
+    <div className={`${styles.timeline__parent}`}>
       {visibleExperiences.map((exp, idx) => (
         <ExperienceItem
           key={exp.id}
@@ -65,7 +62,7 @@ function ExperienceTimelineContent() {
 export default function Experience() {
   return (
     <div id="experience" className="container">
-      <SectionHeader icon={IoBriefcaseOutline} title="Experience" iconSize={28} />
+      <SectionHeader icon={IoBriefcaseOutline} title="Experience" iconSize={28}/>
       <ExperienceTimelineContent/>
     </div>
   );

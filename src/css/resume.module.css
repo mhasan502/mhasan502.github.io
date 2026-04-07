@@ -554,8 +554,13 @@
 }
 
 .hero__contactModal__linkValue {
-    text-decoration: underline;
+    text-decoration: none;
     text-underline-offset: 0.14em;
+}
+
+.hero__contactModal__link:hover .hero__contactModal__linkValue,
+.hero__contactModal__link:focus-visible .hero__contactModal__linkValue {
+    text-decoration: underline;
 }
 
 .hero__contactModal__close {

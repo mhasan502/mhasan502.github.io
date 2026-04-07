@@ -76,7 +76,7 @@ html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
 
 .navbar__link.navbar-resume-button,
 .menu__link.navbar-resume-button {
-  border: 1.5px solid var(--ifm-color-primary);
+  border: 1px solid var(--ifm-color-primary);
   color: var(--ifm-color-primary) !important;
   border-radius: 999px;
   padding: 0.35rem 0.95rem;
@@ -129,14 +129,14 @@ html[data-theme='dark'].navbar-scrolled body .navbar.navbar--primary {
 
   .navbar.navbar-sidebar--show {
     --ifm-navbar-background-color: #ffffff;
-    background: #ffffff;
+    background: var(--ifm-navbar-background-color) !important;
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 
   html[data-theme='dark'] .navbar.navbar-sidebar--show {
     --ifm-navbar-background-color: #1b1b1d;
-    background: #1b1b1d;
+    background: var(--ifm-navbar-background-color) !important;
   }
 
   .navbar__items--right .navbar__link.navbar-resume-button {

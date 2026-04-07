@@ -9,26 +9,54 @@ import {HiSparkles, HiOutlineSparkles} from "react-icons/hi2";
 import {summarizedAIData} from "./data/summarizedAIData";
 import scholarMetrics from "./data/scholarMetrics.json";
 
+const WHATSAPP_LINK = "https://wa.link/f3urw3";
+const RESUME_LINK = "/files/Resume%20of%20Md.%20Mehedi%20Hasan.pdf";
+const OPEN_SOURCE_CONTRIBUTIONS = 2;
+const SCHOLAR_CITATIONS_FALLBACK = 48;
+const BADGE_TYPING_INTERVAL_MS = 35;
+const RECENT_BUBBLE_HISTORY_SIZE = 5;
+
+const HERO_INTRO_POINTS = [
+  "Specialized in computer vision, inference systems, MLOps, and LLM applications.",
+  "Shipped AI agents, real-time vision pipelines, and optimized GPU inference workloads.",
+  "Bachelor in CSE, North South University",
+];
+
+function getEmailLinkFromSocials(links) {
+  return links.find((item) => item.id === "email")?.href ?? "#";
+}
+
+function getNextBubbleMessage(recentIds) {
+  if (summarizedAIData.length === 0) {
+    return {text: "", updatedRecentIds: recentIds};
+  }
+
+  const candidates = summarizedAIData.filter((item) => !recentIds.includes(item.id));
+  const pool = candidates.length > 0 ? candidates : summarizedAIData;
+  const nextItem = pool[Math.floor(Math.random() * pool.length)];
+  const updatedRecentIds = [...recentIds, nextItem.id].slice(-RECENT_BUBBLE_HISTORY_SIZE);
+
+  return {text: nextItem.text, updatedRecentIds};
+}
 
 export default function HeroSection() {
   const {siteConfig} = useDocusaurusContext();
   const experience = getExperienceYears();
-  const emailLink = socialLinks.find((item) => item.id === "email")?.href ?? "#";
-  const contactEmail = emailLink.replace("mailto:", "");
-  const whatsappLink = "https://wa.link/f3urw3";
-  const resumeLink = "/files/Resume%20of%20Md.%20Mehedi%20Hasan.pdf";
-  const openSourceContributions = 2;
+  const emailLink = getEmailLinkFromSocials(socialLinks);
+  const contactEmail = emailLink.startsWith("mailto:") ? emailLink.slice("mailto:".length) : emailLink;
   const [isBadgeBubbleOpen, setIsBadgeBubbleOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [currentBubbleMessage, setCurrentBubbleMessage] = useState("");
   const [typedBubbleText, setTypedBubbleText] = useState("");
   const badgeWrapperRef = useRef(null);
   const recentBubbleIdsRef = useRef([]);
-  const googleScholarCitations = Number.isFinite(scholarMetrics?.citations) ? scholarMetrics.citations : 48;
+  const googleScholarCitations = Number.isFinite(scholarMetrics?.citations)
+    ? scholarMetrics.citations
+    : SCHOLAR_CITATIONS_FALLBACK;
   const heroStats = [
     {label: "Years Experience", value: `${experience.roundedYears}+`},
     {label: "Scholar Citations", value: `${googleScholarCitations}`},
-    {label: "Open Source Contributions", value: `${openSourceContributions}`},
+    {label: "Open Source Contributions", value: `${OPEN_SOURCE_CONTRIBUTIONS}`},
   ];
 
   useEffect(() => {
@@ -70,7 +98,7 @@ export default function HeroSection() {
       if (index >= currentBubbleMessage.length) {
         window.clearInterval(typingTimer);
       }
-    }, 35);
+    }, BADGE_TYPING_INTERVAL_MS);
 
     return () => window.clearInterval(typingTimer);
   }, [currentBubbleMessage, isBadgeBubbleOpen]);
@@ -81,17 +109,27 @@ export default function HeroSection() {
     typedBubbleText.length < currentBubbleMessage.length;
 
   function pickRandomBubbleMessage() {
-    if (summarizedAIData.length === 0) {
-      return "";
-    }
+    const {text, updatedRecentIds} = getNextBubbleMessage(recentBubbleIdsRef.current);
+    recentBubbleIdsRef.current = updatedRecentIds;
+    return text;
+  }
 
-    const recentIds = recentBubbleIdsRef.current;
-    const candidates = summarizedAIData.filter((item) => !recentIds.includes(item.id));
-    const pool = candidates.length > 0 ? candidates : summarizedAIData;
-    const nextItem = pool[Math.floor(Math.random() * pool.length)];
+  function handleOpenContactModal() {
+    setIsContactModalOpen(true);
+  }
 
-    recentBubbleIdsRef.current = [...recentIds, nextItem.id].slice(-5);
-    return nextItem.text;
+  function handleCloseContactModal() {
+    setIsContactModalOpen(false);
+  }
+
+  function handleToggleBadgeBubble() {
+    setIsBadgeBubbleOpen((open) => {
+      if (open) {
+        return false;
+      }
+      setCurrentBubbleMessage(pickRandomBubbleMessage());
+      return true;
+    });
   }
 
 
@@ -115,32 +153,22 @@ export default function HeroSection() {
             ))}
           </div>
           <ul className={styles.hero__introduction__list}>
-            <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon}/>
-              <span className={styles.hero__bullet__text}>
-                Specialized in computer vision, inference systems, MLOps, and LLM applications.
-              </span>
-            </li>
-            <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon}/>
-              <span className={styles.hero__bullet__text}>
-                Shipped AI agents, real-time vision pipelines, and optimized GPU inference workloads.
-              </span>
-            </li>
-            <li>
-              <PiArrowElbowDownRight className={styles.hero__bullet__icon}/>
-              <span className={styles.hero__bullet__text}>Bachelor in CSE, North South University</span>
-            </li>
+            {HERO_INTRO_POINTS.map((point) => (
+              <li key={point}>
+                <PiArrowElbowDownRight className={styles.hero__bullet__icon}/>
+                <span className={styles.hero__bullet__text}>{point}</span>
+              </li>
+            ))}
           </ul>
           <div className={styles.hero__cta__group}>
             <button
               type="button"
               className={`${styles.hero__cta} ${styles.hero__cta__primary}`}
-              onClick={() => setIsContactModalOpen(true)}
+              onClick={handleOpenContactModal}
             >
               Contact me
             </button>
-            <a className={`${styles.hero__cta} ${styles.hero__cta__secondary}`} href={resumeLink} target="_blank" rel="noopener noreferrer">
+            <a className={`${styles.hero__cta} ${styles.hero__cta__secondary}`} href={RESUME_LINK} target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </div>
@@ -167,22 +195,13 @@ export default function HeroSection() {
             <img className={styles.hero__image} src={mehedi_webp} alt="Picture of Mhasan502"/>
             <div className={styles.hero__expertise__list}>
               <div className={styles.hero__badge__wrap} ref={badgeWrapperRef}>
-                <a
+                <button
+                  type="button"
                   className={`${styles.hero__badge} ${isBadgeBubbleOpen ? styles.hero__badge__open : ""}`}
-                  href={emailLink}
                   aria-label="Toggle badge message"
                   aria-expanded={isBadgeBubbleOpen}
                   aria-controls="hero-badge-bubble"
-                  onClick={(event) => {
-                    event.preventDefault();
-                    setIsBadgeBubbleOpen((open) => {
-                      if (open) {
-                        return false;
-                      }
-                      setCurrentBubbleMessage(pickRandomBubbleMessage());
-                      return true;
-                    });
-                  }}
+                  onClick={handleToggleBadgeBubble}
                 >
                   {isBadgeBubbleOpen ? (
                     <HiSparkles className={styles.hero__badge__icon}/>
@@ -190,25 +209,25 @@ export default function HeroSection() {
                     <HiOutlineSparkles className={styles.hero__badge__icon}/>
                   )}
                   <span className={styles.hero__badge__textWrap}>
-                <span className={styles.hero__badge__text}>
-                  {isBadgeBubbleOpen ? (
-                    isBubbleTyping ? (
-                      <span className={styles.hero__badge__loading} aria-label="AI is generating">
-                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
-                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
-                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
-                        <span className={styles.hero__badge__dot} aria-hidden="true"/>
-                      </span>
-                    ) : (
-                      "· · · ·"
-                    )
-                  ) : (
-                    siteConfig.tagline
-                  )}
-                </span>
-                <span className={styles.hero__badge__textSizer} aria-hidden="true">{siteConfig.tagline}</span>
-              </span>
-                </a>
+                    <span className={styles.hero__badge__text}>
+                      {isBadgeBubbleOpen ? (
+                        isBubbleTyping ? (
+                          <span className={styles.hero__badge__loading} aria-label="AI is generating">
+                            <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                            <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                            <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                            <span className={styles.hero__badge__dot} aria-hidden="true"/>
+                          </span>
+                        ) : (
+                          "· · · ·"
+                        )
+                      ) : (
+                        siteConfig.tagline
+                      )}
+                    </span>
+                    <span className={styles.hero__badge__textSizer} aria-hidden="true">{siteConfig.tagline}</span>
+                  </span>
+                </button>
                 {isBadgeBubbleOpen && (
                   <div id="hero-badge-bubble" className={styles.hero__badge__bubble} role="status" aria-live="polite">
                     <span>{typedBubbleText}</span>
@@ -226,7 +245,7 @@ export default function HeroSection() {
           role="dialog"
           aria-modal="true"
           aria-label="Contact details"
-          onClick={() => setIsContactModalOpen(false)}
+          onClick={handleCloseContactModal}
         >
           <div
             className={styles.hero__contactModal__content}
@@ -239,7 +258,7 @@ export default function HeroSection() {
             </a>
             <a
               className={styles.hero__contactModal__link}
-              href={whatsappLink}
+              href={WHATSAPP_LINK}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -249,7 +268,7 @@ export default function HeroSection() {
             <button
               type="button"
               className={styles.hero__contactModal__close}
-              onClick={() => setIsContactModalOpen(false)}
+              onClick={handleCloseContactModal}
             >
               Close
             </button>
