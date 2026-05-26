@@ -171,6 +171,14 @@ export default function HeroSection() {
             <a className={`${styles.hero__cta} ${styles.hero__cta__secondary}`} href={RESUME_LINK} target="_blank" rel="noopener noreferrer">
               Resume
             </a>
+            <a
+              className={`${styles.hero__cta} ${styles.hero__cta__hire}`}
+              href="https://www.upwork.com/freelancers/~0115f19dfe6e9b8706"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Hire Me
+            </a>
           </div>
           <div className={styles.social__links__container}>
             {socialLinks.map(({id, href, icon: Icon, hoverText}) => (

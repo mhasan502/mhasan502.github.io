@@ -250,6 +250,7 @@
 .hero__badge__textSizer {
     grid-area: 1 / 1;
     color: var(--resume-text-primary);
+    font-family: "Rubik", serif;
 }
 
 .hero__badge__textSizer {
@@ -1365,4 +1366,13 @@
     .skillsLinear__label {
         padding-top: 0;
     }
+}
+
+.hero__cta__hire {
+    background-color: #14A800;
+    color: #ffffff;
+}
+
+.hero__cta__hire:hover {
+    background-color: #148a03;
 }
