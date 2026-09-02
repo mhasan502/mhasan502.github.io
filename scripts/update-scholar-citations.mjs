@@ -10,6 +10,9 @@ const outputPath = resolve(rootDir, "src/components/resume/data/scholarMetrics.j
 const DEFAULT_CITATIONS = 48;
 const GS_AUTHOR_ID = "1E7N-BoAAAAJ";
 const SERPAPI_API_KEY = process.env.SERPAPI_API_KEY;
+const MAX_ATTEMPTS = 3;
+const RETRY_DELAY_MS = 1_000;
+const RETRYABLE_STATUS_CODES = new Set([408, 425, 429, 500, 502, 503, 504]);
 
 async function readExistingMetrics() {
   try {
@@ -35,24 +38,43 @@ async function fetchCitationCount() {
   endpoint.searchParams.set("hl", "en");
   endpoint.searchParams.set("api_key", SERPAPI_API_KEY);
 
-  const response = await fetch(endpoint, {
-    headers: { accept: "application/json" },
-    signal: AbortSignal.timeout(20_000),
-  });
+  let lastError;
+  // ponytail: fixed three-attempt retry; add jitter only if API reliability warrants it.
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
+    try {
+      const response = await fetch(endpoint, {
+        headers: { accept: "application/json" },
+        signal: AbortSignal.timeout(20_000),
+      });
 
-  if (!response.ok) {
-    throw new Error(`SerpApi request failed with status ${response.status}.`);
+      if (!response.ok) {
+        const error = new Error(`SerpApi request failed with status ${response.status}.`);
+        error.retryable = RETRYABLE_STATUS_CODES.has(response.status);
+        throw error;
+      }
+
+      const payload = await response.json();
+      const citationRow = payload?.cited_by?.table?.find((row) => row?.citations?.all != null);
+      const citations = Number(citationRow?.citations?.all);
+
+      if (!Number.isFinite(citations)) {
+        throw new Error("Unable to parse citation count from SerpApi response.");
+      }
+
+      return citations;
+    } catch (error) {
+      lastError = error;
+      if (error?.retryable === false || attempt === MAX_ATTEMPTS) {
+        throw error;
+      }
+
+      const delay = RETRY_DELAY_MS * 2 ** (attempt - 1);
+      console.warn(`SerpApi attempt ${attempt} failed. Retrying in ${delay}ms.`);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
   }
 
-  const payload = await response.json();
-  const citationRow = payload?.cited_by?.table?.find((row) => row?.citations?.all != null);
-  const citations = Number(citationRow?.citations?.all);
-
-  if (!Number.isFinite(citations)) {
-    throw new Error("Unable to parse citation count from SerpApi response.");
-  }
-
-  return citations;
+  throw lastError;
 }
 
 async function saveMetrics(metrics) {

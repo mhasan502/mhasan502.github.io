@@ -8,6 +8,10 @@ on:
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
   workflow_dispatch:
 
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build Docusaurus
@@ -18,7 +22,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v6
         with:
-          node-version: 25
+          node-version: 24
           cache: yarn
 
       - name: Install dependencies
